@@ -6,7 +6,7 @@ import LinearSearch from "./searchingAlgorithms/linearSearch/linearSearch";
 function App() {
     return (
         <div className="App">
-            {/* <LinearSearch /> */}
+            <LinearSearch />
             <BinarySearch />
         </div>
     );
