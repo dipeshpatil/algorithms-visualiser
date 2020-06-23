@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+@keyframes growFind {
+    0% {
+        transform: scale3d(1, 1, 1);
+    }
+    100% {
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+}
+
+* {
+    font-family: "Open Sans", sans-serif;
+}
+
+.box {
+    position: relative;
+}
+
+.l-array-bar {
+    background-color: #6376f1;
+    display: inline-block;
+    margin: 5px;
+    color: #fff;
+    width: 60px;
+    text-align: center;
+    padding: 8px;
+    border-radius: 3px;
+}
+
+.l-array-bar span {
+    padding: 3px;
+    background-color: aquamarine;
+    color: #000;
+    margin-top: 10px;
+    border-radius: 3px;
+    display: inline-block;
+    width: 30px;
+}
+
+.found {
+    padding: 5px;
+    margin-top: 10px;
+    font-size: 20px;
+    color: #137c41;
+}
+.not-found {
+    padding: 5px;
+    margin-top: 10px;
+    font-size: 20px;
+    color: #b61717;
+}
+
+.row {
+    margin-top: 10px;
+}
+
+.growFind {
+    /* animation-name: growFind;
+    animation-duration: 400ms;
+    animation-fill-mode: forwards;
+    animation-direction: normal; */
+
+    transition: ease-in 500ms;
+}
+
+.highlight {
+    transition: ease-in 300ms;
+    transform: scale3d(1.25, 1.25, 1.25);
+    margin: 1.5rem;
+}
