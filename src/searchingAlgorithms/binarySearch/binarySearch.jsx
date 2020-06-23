@@ -129,7 +129,7 @@ export default class BinarySearch extends React.Component {
         const { array, found, disabled, msgAfterExecution } = this.state;
 
         return (
-            <div className="jumbotron jumbotron-fluid">
+            <div className="jumbotron jumbotron-fluid bg-dark">
                 <center>
                     <Header title="Binary Search" />
                     <div className="container">
@@ -137,7 +137,7 @@ export default class BinarySearch extends React.Component {
                             <div className="col-sm-1"></div>
                             <div className="input-group col-sm-10">
                                 <input
-                                    type="text"
+                                    type="number"
                                     id="binarySearchTargetVal"
                                     className="form-control"
                                     placeholder="Find Element"

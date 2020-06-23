@@ -2,7 +2,7 @@ import React from "react";
 
 const Header = ({ title }) => (
     <div>
-        <h1>{title}</h1>
+        <h1 className="text-light" >{title}</h1>
     </div>
 );
 

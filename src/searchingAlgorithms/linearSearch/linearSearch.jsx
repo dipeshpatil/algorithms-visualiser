@@ -9,7 +9,7 @@ import ArrayTile from "./../arrayTile";
 import "./../../utils/bootstrap.min.css";
 import "./linearSearch.css";
 
-const NUMBER_OF_ARRAY_BARS = 15 * 2;
+const NUMBER_OF_ARRAY_BARS = 15;
 const DEFAULT_COLOR = "#6376f1";
 const FOUND_COLOR = "#28B463";
 const NOT_FOUND_COLOR = "#F16388";
@@ -103,7 +103,7 @@ export default class LinearSearch extends React.Component {
         const { array, found, disabled, msgAfterExecution } = this.state;
 
         return (
-            <div className="jumbotron jumbotron-fluid">
+            <div className="jumbotron jumbotron-fluid bg-dark">
                 <center>
                     <Header title="Linear Search" />
                     <div className="container">
@@ -111,7 +111,7 @@ export default class LinearSearch extends React.Component {
                             <div className="col-sm-1"></div>
                             <div className="input-group col-sm-10">
                                 <input
-                                    type="text"
+                                    type="number"
                                     id="targetVal"
                                     className="form-control"
                                     placeholder="Find Element"
