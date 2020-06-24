@@ -103,7 +103,7 @@ export default class LinearSearch extends React.Component {
         const { array, found, disabled, msgAfterExecution } = this.state;
 
         return (
-            <div className="jumbotron jumbotron-fluid bg-dark">
+            <div className="jumbotron jumbotron-fluid bg-light">
                 <center>
                     <Header title="Linear Search" />
                     <div className="container">

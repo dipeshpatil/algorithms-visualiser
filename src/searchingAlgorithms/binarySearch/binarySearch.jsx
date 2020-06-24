@@ -126,7 +126,7 @@ export default class BinarySearch extends React.Component {
         const { array, found, disabled, msgAfterExecution } = this.state;
 
         return (
-            <div className="jumbotron jumbotron-fluid bg-dark">
+            <div className="jumbotron jumbotron-fluid bg-light">
                 <center>
                     <Header title="Binary Search" />
                     <div className="container">
