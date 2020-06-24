@@ -1,17 +1,13 @@
 import React from "react";
 import "./App.css";
-import BinarySearch from "./searchingAlgorithms/binarySearch/binarySearch";
-import LinearSearch from "./searchingAlgorithms/linearSearch/linearSearch";
 
 import "./utils/bootstrap.min.css";
+import NQueensProblem from "./backTrackingAlgorithms/nQueensProblem/nQueensProblem";
 
 function App() {
     return (
         <div className="App">
-            {/* <div className="container-fluid"> */}
-            <BinarySearch />
-            <LinearSearch />
-            {/* </div> */}
+            <NQueensProblem />
         </div>
     );
 }

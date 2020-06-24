@@ -2,16 +2,16 @@ import React from "react";
 
 const ArrayTile = ({ idx, val, type }) =>
     type === "binarySearch" ? (
-        <div className="b-array-bar" key={idx}>
+        <div className="b-array-bar">
             {`${val}`}
             <br />
-            <span>{`${idx}`}</span>{" "}
+            <span>{`${idx}`}</span>
         </div>
     ) : (
-        <div className="l-array-bar" key={idx}>
+        <div className="l-array-bar">
             {`${val}`}
             <br />
-            <span>{`${idx}`}</span>{" "}
+            <span>{`${idx}`}</span>
         </div>
     );
 

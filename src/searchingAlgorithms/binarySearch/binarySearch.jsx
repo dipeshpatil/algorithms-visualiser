@@ -76,6 +76,7 @@ export default class BinarySearch extends React.Component {
         const { array } = this.state;
         const animations = [];
         let count = 0;
+        const arrayTiles = document.getElementsByClassName("b-array-bar");
 
         binarySearchAnimations(
             array,
@@ -84,10 +85,6 @@ export default class BinarySearch extends React.Component {
             parseInt(document.getElementById("binarySearchTargetVal").value),
             animations
         );
-
-        console.log(animations);
-
-        const arrayTiles = document.getElementsByClassName("b-array-bar");
 
         for (let k = 0; k < animations.length; k++) {
             const [left, right, mid, found] = animations[k];

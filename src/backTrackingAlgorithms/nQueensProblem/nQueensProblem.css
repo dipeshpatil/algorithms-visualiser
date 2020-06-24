@@ -1,0 +1,84 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+* {
+    font-family: "Open Sans", sans-serif;
+}
+
+body {
+    background-color: #f0f0f0;
+}
+
+@keyframes popupQueen {
+    0% {
+        transform: scale3d(1, 1, 1);
+    }
+    50% {
+        transform: scale3d(1.5, 1.5, 1.5);
+    }
+    100% {
+        transform: scale3d(1, 1, 1);
+    }
+}
+.board {
+    position: relative;
+    border-radius: 3px;
+    padding: 10px;
+    width: 100%;
+}
+.board .q-array-tile {
+    display: inline-block;
+    margin: 2px;
+    text-align: center;
+    border-radius: 2px;
+}
+.board .q-array-tile i {
+    font-size: 25px;
+    color: #fff;
+}
+
+.popupQueen {
+    animation-name: popupQueen;
+    animation-duration: 400ms;
+    animation-fill-mode: forwards;
+    animation-direction: normal;
+    transform-origin: center;
+    transform-box: fill-box;
+    animation-timing-function: ease-in-out;
+    transition: 400ms all;
+}
+
+.box {
+    display: grid;
+    grid-gap: 0 0;
+    background-color: #fff;
+    grid-template-rows: repeat(var(--grid-rows), 1fr);
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
+
+    box-shadow: 0 0.5px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.grid-item {
+    padding-top: 100%;
+    cursor: pointer;
+    text-align: center;
+}
+
+.highlight {
+    transition: ease-in 300ms;
+    transform: scale3d(1.25, 1.25, 1.25);
+    margin: 1.5rem;
+}
+
+#NQueenResults {
+    width: 100%;
+    height: 50vh;
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.alert-success {
+    background-color: #abebc6;
+}
