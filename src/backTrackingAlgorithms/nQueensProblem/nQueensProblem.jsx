@@ -33,7 +33,7 @@ export default class NQueensProblem extends React.Component {
         let fontSize = 0;
 
         // Deleting the previous board cells and results section for new start
-        document.getElementById("board").innerHTML = "";
+        document.getElementById("nQueensBoard").innerHTML = "";
         document.getElementById("NQueenResults").innerHTML = "";
 
         // Calculating the board size and style values
@@ -80,11 +80,11 @@ export default class NQueensProblem extends React.Component {
                 ANIMATION_SPEED_SECONDS = 0.2;
         }
         // creating the board
-        const container = document.getElementById("board");
+        const container = document.getElementById("nQueensBoard");
 
         // Adding Rows and Columns to the board
-        container.style.setProperty("--grid-rows", SIZE);
-        container.style.setProperty("--grid-cols", SIZE);
+        container.style.setProperty("--Qgrid-rows", SIZE);
+        container.style.setProperty("--Qgrid-cols", SIZE);
 
         // Adding cells to the board
         for (let j = 0; j < SIZE * SIZE; j++) {
@@ -92,7 +92,7 @@ export default class NQueensProblem extends React.Component {
             let item = document.createElement("i");
 
             cell.appendChild(item).className = "fas fa-crown";
-            container.appendChild(cell).className = "grid-item q-array-tile";
+            container.appendChild(cell).className = "Qgrid-item q-array-tile";
         }
 
         // Styling the cells
@@ -232,16 +232,20 @@ export default class NQueensProblem extends React.Component {
                                     <center>
                                         <h2>
                                             <img
-                                                class="mb-2"
+                                                className="mb-2"
                                                 src={crown}
                                                 width="40px"
+                                                alt={""}
                                             />{" "}
                                             N-Queens Visualiser
                                         </h2>
                                     </center>
                                 </div>
                             </div>
-                            <div className="box board mb-2" id="board"></div>
+                            <div
+                                className="Qbox Qboard mb-2"
+                                id="nQueensBoard"
+                            ></div>
                             <div className="row">
                                 <div className="input-group mt-1 container col-sm-6">
                                     <div className="input-group-prepend">

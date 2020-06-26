@@ -20,19 +20,19 @@ body {
         transform: scale3d(1, 1, 1);
     }
 }
-.board {
+.Qboard {
     position: relative;
     border-radius: 3px;
     padding: 10px;
     width: 100%;
 }
-.board .q-array-tile {
+.Qboard .q-array-tile {
     display: inline-block;
     margin: 2px;
     text-align: center;
     border-radius: 2px;
 }
-.board .q-array-tile i {
+.Qboard .q-array-tile i {
     font-size: 25px;
     color: #fff;
 }
@@ -48,18 +48,18 @@ body {
     transition: 400ms all;
 }
 
-.box {
+.Qbox {
     display: grid;
     grid-gap: 0 0;
     background-color: #fff;
-    grid-template-rows: repeat(var(--grid-rows), 1fr);
-    grid-template-columns: repeat(var(--grid-cols), 1fr);
+    grid-template-rows: repeat(var(--Qgrid-rows), 1fr);
+    grid-template-columns: repeat(var(--Qgrid-cols), 1fr);
 
     box-shadow: 0 0.5px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-.grid-item {
+.Qgrid-item {
     padding-top: 100%;
     cursor: pointer;
     text-align: center;
