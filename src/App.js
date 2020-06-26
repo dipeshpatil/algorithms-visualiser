@@ -3,14 +3,17 @@ import "./App.css";
 
 import "./utils/bootstrap.min.css";
 
-import MainRouter from "./mainRouter";
-import { BrowserRouter } from "react-router-dom";
+import NQueensProblem from "./backTrackingAlgorithms/nQueensProblem/nQueensProblem";
+import BinarySearch from "./searchingAlgorithms/binarySearch/binarySearch";
+import LinearSearch from "./searchingAlgorithms/linearSearch/linearSearch";
 
 function App() {
     return (
-        <BrowserRouter>
-            <MainRouter />
-        </BrowserRouter>
+        <div className="App">
+            <NQueensProblem />
+            {/* <LinearSearch />
+            <BinarySearch /> */}
+        </div>
     );
 }
 
