@@ -2,17 +2,15 @@ import React from "react";
 import "./App.css";
 
 import "./utils/bootstrap.min.css";
-import NQueensProblem from "./backTrackingAlgorithms/nQueensProblem/nQueensProblem";
-import BinarySearch from "./searchingAlgorithms/binarySearch/binarySearch";
-import LinearSearch from "./searchingAlgorithms/linearSearch/linearSearch";
+
+import MainRouter from "./mainRouter";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
     return (
-        <div className="App">
-            <NQueensProblem />
-            <LinearSearch />
-            <BinarySearch />
-        </div>
+        <BrowserRouter>
+            <MainRouter />
+        </BrowserRouter>
     );
 }
 

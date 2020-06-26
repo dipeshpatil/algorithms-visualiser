@@ -230,7 +230,7 @@ export default class NQueensProblem extends React.Component {
                             <div className="row">
                                 <div className="col-sm-12">
                                     <center>
-                                        <h2 class="mt-3">
+                                        <h2>
                                             <img
                                                 class="mb-2"
                                                 src={crown}
