@@ -262,7 +262,7 @@ export default class NQueensProblem extends React.Component {
                                     <small className="text-muted">
                                         <div className="mt-2"></div>
                                         The Visualiser works best for board
-                                        sizes between 4 and 16 inclusive. Larger
+                                        sizes between 4 and 8 inclusive. Larger
                                         board sizes would make the page
                                         unresponsive because of huge number of
                                         computations. &nbsp;

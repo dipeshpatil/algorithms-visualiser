@@ -77,12 +77,14 @@ export default class BinarySearch extends React.Component {
         const animations = [];
         let count = 0;
         const arrayTiles = document.getElementsByClassName("b-array-bar");
+        const target = document.getElementById("binarySearchTargetVal").value;
+        if (target === "") return;
 
         binarySearchAnimations(
             array,
             0,
             array.length - 1,
-            parseInt(document.getElementById("binarySearchTargetVal").value),
+            parseInt(target),
             animations
         );
 

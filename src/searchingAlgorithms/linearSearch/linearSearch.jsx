@@ -53,6 +53,7 @@ export default class LinearSearch extends React.Component {
     linearSearch() {
         var msg = "";
         const target = document.getElementById("targetVal").value;
+        if (target === "") return;
         const animations = linearSearchAnimations(this.state.array, target);
         console.log(animations);
         let count = 0;
