@@ -38,9 +38,6 @@ export default class NQueensProblem extends React.Component {
 
         // Calculating the board size and style values
         switch (SIZE) {
-            case 1:
-            case 2:
-            case 3:
             case 4:
                 padding = 20;
                 fontSize = 30;
@@ -62,22 +59,8 @@ export default class NQueensProblem extends React.Component {
                 fontSize = 18;
                 ANIMATION_SPEED_SECONDS = 0.5;
                 break;
-            case 9:
-            case 10:
-            case 11:
-            case 12:
-            case 13:
-            case 14:
-            case 15:
-            case 16:
-                padding = 7;
-                fontSize = 15;
-                ANIMATION_SPEED_SECONDS = 0.2;
-                break;
             default:
-                fontSize = 10;
-                padding = 0;
-                ANIMATION_SPEED_SECONDS = 0.2;
+                return;
         }
         // creating the board
         const container = document.getElementById("nQueensBoard");
@@ -117,8 +100,8 @@ export default class NQueensProblem extends React.Component {
         // checking if size is greater than 3 because no solutions exist for n <= 3
         // checking if size is lesser than 17 because the user's RAM will be
         // used heavily for greater sizes and page can be unresponsive.
-        if (size < 4 || size > 16) {
-            alert("Board Size must be between 4 and 16");
+        if (size < 4 || size > 8) {
+            alert("Board Size must be between 4 and 8");
             return;
         }
         // finally drawing the board
