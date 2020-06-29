@@ -32,7 +32,7 @@ body {
     text-align: center;
     border-radius: 2px;
 }
-.Qboard .q-array-tile i {
+.Qboard .q-array-tile i.fa-crown {
     font-size: 25px;
     color: #fff;
 }

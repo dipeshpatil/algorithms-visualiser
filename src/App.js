@@ -23,26 +23,28 @@ export default class App extends React.Component {
     render() {
         return (
             <div className="App">
-                <span className="ml-2 text-dark">Algorithms Visualiser</span>
-                <span className="float-right">
-                    <a
-                        target="_blank"
-                        className="btn-sm text-decoration-none bg-light rounded-0 text-dark"
-                        href="https:github.com/dipeshpatil/algorithms-visualiser"
-                    >
-                        <i className="fab text-dark fa-github"></i>
-                        &nbsp; Repo URL
-                    </a>
-                    <a
-                        target="_blank"
-                        className="btn-sm text-decoration-none bg-light rounded-0 text-dark"
-                        href="https:linkedin.com/in/dipesh-patil"
-                    >
-                        <i className="fab text-dark fa-linkedin"></i>
-                        &nbsp; Dipesh Patil
-                    </a>
-                </span>
-                <ul className="nav sticky-top bg-dark">
+                <div className="bg-dark py-2 px-2">
+                    <span className="text-light">
+                        Algorithms Visualiser
+                    </span>
+                    <span className="float-right">
+                        <a
+                            className="btn-sm text-decoration-none bg-dark rounded-0 text-light"
+                            href="https:github.com/dipeshpatil/algorithms-visualiser"
+                        >
+                            <i className="fab text-light fa-github"></i>
+                            &nbsp; Repo URL
+                        </a>
+                        <a
+                            className="btn-sm text-decoration-none bg-dark rounded-0 text-light"
+                            href="https:linkedin.com/in/dipesh-patil"
+                        >
+                            <i className="fab text-light fa-linkedin"></i>
+                            &nbsp; Dipesh Patil
+                        </a>
+                    </span>
+                </div>
+                <ul className="nav sticky-top bg-secondary">
                     <li className="nav-item">
                         <a
                             onClick={() => this.openTab("sortingTab")}
@@ -71,7 +73,7 @@ export default class App extends React.Component {
                         </a>
                     </li>
                 </ul>
-                <div className="mt-3">
+                <div className="mt-90">
                     <div id="sortingTab" className="tabs">
                         <SortingVisualiser />
                     </div>
