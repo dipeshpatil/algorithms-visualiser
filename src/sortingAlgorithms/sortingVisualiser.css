@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+* {
+    font-family: "Open Sans", sans-serif;
+}
+
+:root {
+    --grid-cols: 1;
+    --grid-rows: 1;
+}
+
+body {
+    background-color: #e5e8e8;
+}
+
+@keyframes popupBlock {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.rounded-b {
+    border-radius: 5px;
+}
+
+.box {
+    display: grid;
+    grid-gap: 0 0;
+    padding: 10px;
+    border-radius: 3px;
+    background-color: #fff;
+    grid-template-rows: repeat(var(--grid-rows), 1fr);
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
+}
+
+.shadowT {
+    box-shadow: 0 0.5px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.grid-item {
+    padding-top: 100%;
+    text-align: center;
+}
+
+.popupBlocks {
+    animation-name: popupBlock;
+    animation-timing-function: ease-in;
+    animation-duration: 400ms;
+    animation-delay: 400ms;
+    animation-fill-mode: forwards;
+    animation-direction: normal;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+.table {
+    font-size: 14px;
+}
