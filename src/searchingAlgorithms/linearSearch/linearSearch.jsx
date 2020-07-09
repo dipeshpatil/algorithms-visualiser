@@ -5,15 +5,16 @@ import { linearSearchAnimations } from "./../searchingAlgorithms";
 import Header from "./../../utils/header";
 import ArrayTile from "./../arrayTile";
 
+import BackBar from "./../../utils/backbar";
+
 // Stylesheets
-import "./../../utils/bootstrap.min.css";
 import "./linearSearch.css";
 
 const NUMBER_OF_ARRAY_BARS = 15;
 const DEFAULT_COLOR = "#6376f1";
 const FOUND_COLOR = "#28B463";
 const NOT_FOUND_COLOR = "#F16388";
-const ANIMATION_SPEED_SECONDS = 0.2;
+const ANIMATION_SPEED_SECONDS = 1;
 
 export default class LinearSearch extends React.Component {
     constructor(props) {
@@ -104,58 +105,63 @@ export default class LinearSearch extends React.Component {
         const { array, found, disabled, msgAfterExecution } = this.state;
 
         return (
-            <div className="jumbotron jumbotron-fluid bg-light">
-                <center>
-                    <Header title="Linear Search" />
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-sm-1"></div>
-                            <div className="input-group col-sm-10">
-                                <input
-                                    type="number"
-                                    id="targetVal"
-                                    className="form-control"
-                                    placeholder="Find Element"
-                                />
-                                <div className="input-group-append">
-                                    <button
-                                        onClick={() => this.linearSearch()}
-                                        className="btn btn-success"
-                                        type="button"
-                                        id="button-addon2"
-                                        disabled={disabled}
-                                    >
-                                        Search
-                                    </button>
-                                    <button
-                                        onClick={() => this.resetArray()}
-                                        className="btn btn-danger"
-                                        id="resetArray"
-                                        type="button"
-                                        disabled={disabled}
-                                    >
-                                        Reset Array
-                                    </button>
+            <div>
+                <BackBar />
+                <div className="jumbotron jumbotron-fluid bg-light">
+                    <center>
+                        <Header title="Linear Search" />
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-sm-1"></div>
+                                <div className="input-group col-sm-10">
+                                    <input
+                                        type="number"
+                                        id="targetVal"
+                                        className="form-control"
+                                        placeholder="Find Element"
+                                    />
+                                    <div className="input-group-append">
+                                        <button
+                                            onClick={() => this.linearSearch()}
+                                            className="btn btn-success"
+                                            type="button"
+                                            id="button-addon2"
+                                            disabled={disabled}
+                                        >
+                                            Search
+                                        </button>
+                                        <button
+                                            onClick={() => this.resetArray()}
+                                            className="btn btn-danger"
+                                            id="resetArray"
+                                            type="button"
+                                            disabled={disabled}
+                                        >
+                                            Reset Array
+                                        </button>
+                                    </div>
                                 </div>
+                                <div className="col-sm-1 "></div>
                             </div>
-                            <div className="col-sm-1 "></div>
                         </div>
-                    </div>
-                    <br />
-                    {!found ? (
-                        <p className="found growFind">{msgAfterExecution}</p>
-                    ) : null}
-                    <div className="container">
-                        {array.map((value, idx) => (
-                            <ArrayTile
-                                type={`linearSearch`}
-                                key={idx}
-                                idx={idx}
-                                val={value}
-                            />
-                        ))}
-                    </div>
-                </center>
+                        <br />
+                        {!found ? (
+                            <p className="found growFind">
+                                {msgAfterExecution}
+                            </p>
+                        ) : null}
+                        <div className="container">
+                            {array.map((value, idx) => (
+                                <ArrayTile
+                                    type={`linearSearch`}
+                                    key={idx}
+                                    idx={idx}
+                                    val={value}
+                                />
+                            ))}
+                        </div>
+                    </center>
+                </div>
             </div>
         );
     }

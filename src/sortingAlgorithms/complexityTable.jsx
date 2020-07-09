@@ -21,7 +21,7 @@ const ComplexityTable = () => (
                     <td className="text-primary">Heap Sort</td>
                     <td>N&times;Log N</td>
                     <td>N&times;Log N</td>
-                    <td>N</td>
+                    <td>1</td>
                 </tr>
                 <tr>
                     <td className="text-primary">Merge Sort</td>
@@ -35,7 +35,7 @@ const ComplexityTable = () => (
                     <td>
                         N<sup>2</sup>
                     </td>
-                    <td>N</td>
+                    <td>Log N</td>
                 </tr>
                 <tr>
                     <td className="text-primary">Bubble Sort</td>

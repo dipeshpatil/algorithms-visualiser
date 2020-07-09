@@ -3,8 +3,9 @@ import crown from "./../nQueensProblem/crown.png";
 
 import { getNQueensAnimations } from "./../backTrackingAlgorithms";
 
+import BackBar from './../../utils/backbar'
+
 // Stylesheets
-import "./../../utils/bootstrap.min.css";
 import "./../../utils/animate.min.css";
 import "./nQueensProblem.css";
 
@@ -80,7 +81,7 @@ export default class NQueensProblem extends React.Component {
 
         // Styling the cells
         const arrayTiles = document.getElementsByClassName("q-array-tile");
-        const crownsI = document.getElementsByClassName("fas");
+        const crownsI = document.getElementsByClassName("fa-crown");
         for (let l = 0; l < arrayTiles.length; l++) {
             arrayTiles[l].style.padding = `${padding}px`;
             arrayTiles[l].style.backgroundColor = CELL_COLOR;
@@ -207,6 +208,7 @@ export default class NQueensProblem extends React.Component {
 
         return (
             <div>
+                <BackBar />
                 <div className="container">
                     <div className="row">
                         <div className="col-sm-8">

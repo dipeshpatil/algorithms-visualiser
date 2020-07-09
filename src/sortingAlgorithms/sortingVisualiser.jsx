@@ -14,8 +14,9 @@ import {
 import cellColors from "./cellColors";
 
 // Stylesheets
-import "./../utils/bootstrap.min.css";
 import "./sortingVisualiser.css";
+
+import BackBar from "./../utils/backbar";
 
 var SELECTED = randomIntFromInterval(0, cellColors.length - 1);
 const color = cellColors[SELECTED].reverse();
@@ -200,52 +201,55 @@ export default class SortingVisualiser extends React.Component {
     render() {
         const { disabled } = this.state;
         return (
-            <div className="container">
-                <div className="row">
-                    <div className="col-sm-7">
-                        <div
-                            className="box shadowT board"
-                            id="sortingBoard"
-                        ></div>
-                    </div>
-                    <div className="col-sm-5 mt-1">
-                        <div className="input-group mt-1">
-                            <div className="input-group-prepend">
-                                <button
-                                    onClick={() => this.resetArray()}
-                                    className="btn btn-danger"
-                                    disabled={disabled}
-                                >
-                                    New Array
-                                </button>
-                            </div>
-                            <select
-                                className="custom-select"
-                                id="sortingAlgoDropDown"
-                                disabled={disabled}
-                                defaultValue="0"
-                            >
-                                <option disabled value="0">
-                                    Algorithm
-                                </option>
-                                <option value="1">Bubble Sort</option>
-                                <option value="2">Selection Sort</option>
-                                <option value="3">Insertion Sort</option>
-                                <option value="4">Quick Sort</option>
-                                <option value="5">Heap Sort</option>
-                                <option value="6">Merge Sort</option>
-                            </select>
-                            <div className="input-group-append">
-                                <button
-                                    onClick={() => this.selectAlgorithm()}
-                                    className="btn btn-success"
-                                    disabled={disabled}
-                                >
-                                    Visualize
-                                </button>
-                            </div>
+            <div>
+                <BackBar />
+                <div className="container">
+                    <div className="row">
+                        <div className="col-sm-7">
+                            <div
+                                className="box shadowT board"
+                                id="sortingBoard"
+                            ></div>
                         </div>
-                        <ComplexityTable />
+                        <div className="col-sm-5 mt-1">
+                            <div className="input-group mt-1">
+                                <div className="input-group-prepend">
+                                    <button
+                                        onClick={() => this.resetArray()}
+                                        className="btn btn-danger"
+                                        disabled={disabled}
+                                    >
+                                        New Array
+                                    </button>
+                                </div>
+                                <select
+                                    className="custom-select"
+                                    id="sortingAlgoDropDown"
+                                    disabled={disabled}
+                                    defaultValue="0"
+                                >
+                                    <option disabled value="0">
+                                        Algorithm
+                                    </option>
+                                    <option value="1">Bubble Sort</option>
+                                    <option value="2">Selection Sort</option>
+                                    <option value="3">Insertion Sort</option>
+                                    <option value="4">Quick Sort</option>
+                                    <option value="5">Heap Sort</option>
+                                    <option value="6">Merge Sort</option>
+                                </select>
+                                <div className="input-group-append">
+                                    <button
+                                        onClick={() => this.selectAlgorithm()}
+                                        className="btn btn-success"
+                                        disabled={disabled}
+                                    >
+                                        Visualize
+                                    </button>
+                                </div>
+                            </div>
+                            <ComplexityTable />
+                        </div>
                     </div>
                 </div>
             </div>

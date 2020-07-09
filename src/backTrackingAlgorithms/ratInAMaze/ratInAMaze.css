@@ -1,0 +1,76 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+* {
+    font-family: "Open Sans", sans-serif;
+}
+.Rboard {
+    position: relative;
+    border-radius: 3px;
+    padding: 10px;
+    background-color: #fff;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 900px) {
+    .Rboard .r-array-tile {
+        display: inline-block;
+        margin: 1px;
+        text-align: center;
+        border-radius: 2px;
+        padding: 6px;
+    }
+    .Rboard .r-array-tile i.rat {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (min-device-width: 901px) {
+    .Rboard .r-array-tile {
+        display: inline-block;
+        margin: 1px;
+        text-align: center;
+        border-radius: 2px;
+        padding: 20px;
+    }
+    .Rboard .r-array-tile i.rat {
+        font-size: 30px;
+    }
+}
+
+.Rbox {
+    display: grid;
+    grid-gap: 0 0;
+    grid-template-rows: repeat(var(--Rgrid-rows), 1fr);
+    grid-template-columns: repeat(var(--Rgrid-cols), 1fr);
+    box-shadow: 0 0.5px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.Rgrid-item {
+    cursor: pointer;
+    text-align: center;
+}
+
+@keyframes highlightPath {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.highlightPath {
+    animation: highlightPath 100ms;
+    animation-timing-function: ease-in-out;
+    transition: 100ms all;
+}
+
+.flipH {
+    transform: scale(-1, 1);
+    -moz-transform: scale(-1, 1);
+    -webkit-transform: scale(-1, 1);
+    -o-transform: scale(-1, 1);
+    -ms-transform: scale(-1, 1);
+    transform: scale(-1, 1);
+}

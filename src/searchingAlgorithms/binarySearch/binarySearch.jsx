@@ -6,8 +6,9 @@ import { binarySearchAnimations } from "./../searchingAlgorithms";
 import Header from "./../../utils/header";
 import ArrayTile from "./../arrayTile";
 
+import BackBar from "./../../utils/backbar";
+
 //Stylesheets
-import "./../../utils/bootstrap.min.css";
 import "./binarySearch.css";
 
 const NUMBER_OF_ARRAY_BARS = 15;
@@ -60,15 +61,15 @@ export default class BinarySearch extends React.Component {
 
     hightlightWithinBounds(start, end, arrayTiles) {
         for (let i = start; i <= end; i++) {
-            setTimeout(() => {
-                arrayTiles[i].style.backgroundColor = NOT_FOUND_COLOR;
-            }, i * 100);
+            arrayTiles[i].style.backgroundColor = NOT_FOUND_COLOR;
+            arrayTiles[i].style.transition = "100ms all";
         }
     }
 
     resetAllTiles(arrayTiles) {
         for (let i = 0; i < arrayTiles.length; i++) {
             arrayTiles[i].style.backgroundColor = DEFAULT_COLOR;
+            arrayTiles[i].style.transition = "100ms all";
         }
     }
 
@@ -128,58 +129,61 @@ export default class BinarySearch extends React.Component {
         const { array, found, disabled, msgAfterExecution } = this.state;
 
         return (
-            <div className="jumbotron jumbotron-fluid bg-light">
-                <center>
-                    <Header title="Binary Search" />
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-sm-1"></div>
-                            <div className="input-group col-sm-10">
-                                <input
-                                    type="number"
-                                    id="binarySearchTargetVal"
-                                    className="form-control"
-                                    placeholder="Find Element"
-                                />
-                                <div className="input-group-append">
-                                    <button
-                                        onClick={() => this.binarySearch()}
-                                        className="btn btn-success"
-                                        type="button"
-                                        id="binarySearchBtn"
-                                        disabled={disabled}
-                                    >
-                                        Search
-                                    </button>
-                                    <button
-                                        onClick={() => this.resetArray()}
-                                        className="btn btn-danger"
-                                        id="binarySearchResetArray"
-                                        type="button"
-                                        disabled={disabled}
-                                    >
-                                        Reset Array
-                                    </button>
+            <div>
+                <BackBar />
+                <div className="jumbotron jumbotron-fluid bg-light">
+                    <center>
+                        <Header title="Binary Search" />
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-sm-1"></div>
+                                <div className="input-group col-sm-10">
+                                    <input
+                                        type="number"
+                                        id="binarySearchTargetVal"
+                                        className="form-control"
+                                        placeholder="Find Element"
+                                    />
+                                    <div className="input-group-append">
+                                        <button
+                                            onClick={() => this.binarySearch()}
+                                            className="btn btn-success"
+                                            type="button"
+                                            id="binarySearchBtn"
+                                            disabled={disabled}
+                                        >
+                                            Search
+                                        </button>
+                                        <button
+                                            onClick={() => this.resetArray()}
+                                            className="btn btn-danger"
+                                            id="binarySearchResetArray"
+                                            type="button"
+                                            disabled={disabled}
+                                        >
+                                            Reset Array
+                                        </button>
+                                    </div>
                                 </div>
+                                <div className="col-sm-1 "></div>
                             </div>
-                            <div className="col-sm-1 "></div>
                         </div>
-                    </div>
-                    {!found ? (
-                        <p className="not-found">{msgAfterExecution}</p>
-                    ) : null}
-                    <br />
-                    <div className="container">
-                        {array.map((value, idx) => (
-                            <ArrayTile
-                                type={"binarySearch"}
-                                key={idx}
-                                idx={idx}
-                                val={value}
-                            />
-                        ))}
-                    </div>
-                </center>
+                        {!found ? (
+                            <p className="not-found">{msgAfterExecution}</p>
+                        ) : null}
+                        <br />
+                        <div className="container">
+                            {array.map((value, idx) => (
+                                <ArrayTile
+                                    type={"binarySearch"}
+                                    key={idx}
+                                    idx={idx}
+                                    val={value}
+                                />
+                            ))}
+                        </div>
+                    </center>
+                </div>
             </div>
         );
     }
