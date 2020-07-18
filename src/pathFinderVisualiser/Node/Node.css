@@ -1,0 +1,73 @@
+:root {
+    --p-grid-cols: 1;
+    --p-grid-rows: 1;
+}
+
+.box{
+    padding: 5px;
+}
+
+.grid {
+    display: grid;
+    grid-gap: 0 0;
+    padding: 2px;
+    background-color: #fff;
+    grid-template-rows: repeat(var(--p-grid-rows), 1fr);
+    grid-template-columns: repeat(var(--p-grid-cols), 1fr);
+}
+
+.node {
+    padding-top: 107%;
+    background-color: #fff;
+}
+
+.plus {
+    background-color: #adc0d2;
+}
+
+.plus-center {
+    background-color: #ffffb3;
+}
+
+.node-start {
+    background-color: #f81245;
+    transition: ease-in-out 200ms;
+}
+
+.node-finish {
+    background-color: #12f893;
+    transition: ease-in-out 200ms;
+}
+
+.node-wall {
+    background-color: #212f3c;
+    transition: all 250ms;
+}
+
+.node-shortest-path {
+    background-color: yellow;
+    transition: ease-in-out 25ms;
+}
+
+.node-visited {
+    background-color: blueviolet;
+    transition: ease-in-out 100ms;
+}
+
+.bg-start {
+    background-color: #f81245 !important;
+    color: white !important;
+}
+.bg-end {
+    background-color: #12f893 !important;
+    color: black !important;
+}
+.bg-wall {
+    background-color: #e5e8e8 !important;
+    color: black !important;
+}
+
+.bg-purple {
+    background-color: blueviolet !important;
+    color: white !important;
+}

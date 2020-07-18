@@ -1,5 +1,9 @@
 ## Latest Added
 
+# Pathfinding Visualiser
+
+<img src="https://raw.githubusercontent.com/dipeshpatil/algorithms-visualiser/master/src/pathFinderVisualiser/pathfinderss.png" />
+
 # Sorting Algorithms Visualiser
 
 <img src="https://raw.githubusercontent.com/dipeshpatil/algorithms-visualiser/master/src/sortingAlgorithms/sortingss.png" />

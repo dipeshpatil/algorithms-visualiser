@@ -17,6 +17,8 @@ import LinearSearch from "./searchingAlgorithms/linearSearch/linearSearch";
 import NQueensProblem from "./backTrackingAlgorithms/nQueensProblem/nQueensProblem";
 import RatInAMazeProblem from "./backTrackingAlgorithms/ratInAMaze/ratInAMaze";
 
+import PathFinderVisualiser from "./pathFinderVisualiser/pathfinderVisualiser";
+
 // Stylesheets
 import "./App.css";
 
@@ -36,6 +38,7 @@ export default class App extends React.Component {
                 <Route path="/binary-search" component={BinarySearch} />
                 <Route path="/n-queens-problem" component={NQueensProblem} />
                 <Route path="/rat-in-a-maze" component={RatInAMazeProblem} />
+                <Route path="/pathfinder" component={PathFinderVisualiser} />
             </div>
         );
     }

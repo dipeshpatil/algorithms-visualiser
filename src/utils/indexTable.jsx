@@ -23,6 +23,15 @@ export default class IndexTable extends React.Component {
                     </thead>
                     <tbody>
                         <tr>
+                            <td>Pathfinding Visualiser</td>
+                            <td>Pathfinding</td>
+                            <td>
+                                <NavLink to="/pathfinder">
+                                    <code>/pathfinder</code>
+                                </NavLink>
+                            </td>
+                        </tr>
+                        <tr>
                             <td>Rat In A Maze</td>
                             <td>Backtracking</td>
                             <td>
