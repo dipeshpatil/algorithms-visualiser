@@ -174,8 +174,12 @@ export default class PathFinderVisualiser extends React.Component {
                     dPathNodes,
                 ] = bidirectionalSearch(d2Grid, STARTNODE, FINISHNODE);
 
-                this.animatePath(source_visited, sPathNodes);
-                this.animatePath(dest_visited, dPathNodes);
+                this.animatePathBD(
+                    source_visited,
+                    sPathNodes,
+                    "node-visited-s"
+                );
+                this.animatePathBD(dest_visited, dPathNodes, "node-visited-d");
 
                 return;
             default:
@@ -369,6 +373,26 @@ export default class PathFinderVisualiser extends React.Component {
                     document.getElementById(
                         `node-${node.row}-${node.col}`
                     ).className = "node node-visited";
+                }
+            }, this.state.speed * i);
+        }
+    }
+
+    animatePathBD(visitedNodesInOrder, nodesInShortestPathOrder, type) {
+        this.setState({ disableNodesButton: true, highlightMazeNodes: false });
+        for (let i = 0; i <= visitedNodesInOrder.length; i++) {
+            if (i === visitedNodesInOrder.length) {
+                setTimeout(() => {
+                    this.animateShortestPath(nodesInShortestPathOrder);
+                }, this.state.speed * i);
+                return;
+            }
+            setTimeout(() => {
+                const node = visitedNodesInOrder[i];
+                if (!node.isStart && !node.isFinish && !node.isWall) {
+                    document.getElementById(
+                        `node-${node.row}-${node.col}`
+                    ).className = "node " + type;
                 }
             }, this.state.speed * i);
         }

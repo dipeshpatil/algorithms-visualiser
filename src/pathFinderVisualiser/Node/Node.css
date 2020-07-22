@@ -3,7 +3,7 @@
     --p-grid-rows: 1;
 }
 
-.box{
+.box {
     padding: 5px;
 }
 
@@ -51,6 +51,16 @@
 
 .node-visited {
     background-color: blueviolet;
+    transition: ease-in-out 100ms;
+}
+
+.node-visited-s {
+    background-color: #f895aa;
+    transition: ease-in-out 100ms;
+}
+
+.node-visited-d {
+    background-color: #94f8cd;
     transition: ease-in-out 100ms;
 }
 
