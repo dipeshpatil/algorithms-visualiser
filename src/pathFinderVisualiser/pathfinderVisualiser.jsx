@@ -39,8 +39,8 @@ import ComplexityTable from "./pathfinder-utils/complexityTable";
 import "./pathfinderVisualiser.css";
 
 const x = 3;
-const ROWS = 40 - x;
-const COLS = 40 - x;
+const ROWS = 46 - x;
+const COLS = 46 - x;
 
 // Constants to toggle Start/Finish/Wall on Grid
 const START_NODE_STATE = 1;
@@ -55,10 +55,10 @@ export default class PathFinderVisualiser extends React.Component {
         this.state = {
             grid: [],
             modifyingNodeState: 0,
-            START_NODE_ROW: 1,
-            START_NODE_COL: 1,
-            FINISH_NODE_ROW: ROWS - 2,
-            FINISH_NODE_COL: COLS - 2,
+            START_NODE_ROW: 2,
+            START_NODE_COL: 2,
+            FINISH_NODE_ROW: ROWS - 3,
+            FINISH_NODE_COL: COLS - 3,
             disableMazesButton: false,
             disableNodesButton: false,
             disableClearMazeButton: false,
