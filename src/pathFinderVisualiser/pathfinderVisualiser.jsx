@@ -12,6 +12,7 @@ import {
 // Pathfinding Algorithms
 import { dijkstra } from "./pathFindingAlgorithms/dijkstra";
 import { bfs } from "./pathFindingAlgorithms/breadthFirstSearch";
+import { dfs } from "./pathFindingAlgorithms/depthFirstSearch";
 import { astar } from "./pathFindingAlgorithms/astar";
 import { bidirectionalSearch } from "./pathFindingAlgorithms/bidirectionalSearch";
 
@@ -182,6 +183,13 @@ export default class PathFinderVisualiser extends React.Component {
                 this.animatePathBD(dest_visited, dPathNodes, "node-visited-d");
 
                 return;
+            case 5:
+                [visitedNodesInOrder, nodesInShortestPathOrder] = dfs(
+                    d2Grid,
+                    STARTNODE,
+                    FINISHNODE
+                );
+                break;
             default:
                 return;
         }
@@ -549,6 +557,9 @@ export default class PathFinderVisualiser extends React.Component {
                                         <option value="1">Dijkstras</option>
                                         <option value="2">
                                             Breadth First Search
+                                        </option>
+                                        <option value="5">
+                                            Depth First Search
                                         </option>
                                         <option value="3">A* Search</option>
                                         <option value="4">
