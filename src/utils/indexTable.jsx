@@ -25,53 +25,15 @@ export default class IndexTable extends React.Component {
                 <center>
                     <div className="row mt-2">
                         <div className="col-sm-4 col-6">
-                            <NavLink to="/linear-search">
-                                <img
-                                    className="img-fluid w-20 shadowB"
-                                    src={LinearThumb}
-                                    alt="Linear Search"
-                                />
-                                <p className="text-dark thumb-title">Linear Search</p>
-                            </NavLink>
-                        </div>
-                        <div className="col-sm-4 col-6">
-                            <NavLink to="/binary-search">
-                                <img
-                                    className="img-fluid w-20 shadowB"
-                                    src={BinaryThumb}
-                                    alt="Binary Search"
-                                />
-                                <p className="text-dark thumb-title">Binary Search</p>
-                            </NavLink>
-                        </div>
-                        <div className="col-sm-4 col-6">
-                            <NavLink to="/n-queens-problem">
-                                <img
-                                    className="img-fluid w-20 shadowB"
-                                    src={NQueensThumb}
-                                    alt="NQueens"
-                                />
-                                <p className="text-dark thumb-title">NQueens Problem</p>
-                            </NavLink>
-                        </div>
-                        <div className="col-sm-4 col-6">
                             <NavLink to="/pathfinder">
                                 <img
                                     className="img-fluid w-20 shadowB"
                                     src={PathThumb}
                                     alt="Path Finding"
                                 />
-                                <p className="text-dark thumb-title">Path Finding</p>
-                            </NavLink>
-                        </div>
-                        <div className="col-sm-4 col-6">
-                            <NavLink to="/rat-in-a-maze">
-                                <img
-                                    className="img-fluid w-20 shadowB"
-                                    src={RatThumb}
-                                    alt="Rat In A Maze"
-                                />
-                                <p className="text-dark thumb-title">Rat In A Maze</p>
+                                <p className="text-dark thumb-title">
+                                    Path Finding
+                                </p>
                             </NavLink>
                         </div>
                         <div className="col-sm-4 col-6">
@@ -81,7 +43,57 @@ export default class IndexTable extends React.Component {
                                     src={SortingThumb}
                                     alt="Sorting"
                                 />
-                                <p className="text-dark thumb-title">Sorting Visualiser</p>
+                                <p className="text-dark thumb-title">
+                                    Sorting Visualiser
+                                </p>
+                            </NavLink>
+                        </div>
+                        <div className="col-sm-4 col-6">
+                            <NavLink to="/n-queens-problem">
+                                <img
+                                    className="img-fluid w-20 shadowB"
+                                    src={NQueensThumb}
+                                    alt="NQueens"
+                                />
+                                <p className="text-dark thumb-title">
+                                    NQueens Problem
+                                </p>
+                            </NavLink>
+                        </div>
+                        <div className="col-sm-4 col-6">
+                            <NavLink to="/linear-search">
+                                <img
+                                    className="img-fluid w-20 shadowB"
+                                    src={LinearThumb}
+                                    alt="Linear Search"
+                                />
+                                <p className="text-dark thumb-title">
+                                    Linear Search
+                                </p>
+                            </NavLink>
+                        </div>
+                        <div className="col-sm-4 col-6">
+                            <NavLink to="/binary-search">
+                                <img
+                                    className="img-fluid w-20 shadowB"
+                                    src={BinaryThumb}
+                                    alt="Binary Search"
+                                />
+                                <p className="text-dark thumb-title">
+                                    Binary Search
+                                </p>
+                            </NavLink>
+                        </div>
+                        <div className="col-sm-4 col-6">
+                            <NavLink to="/rat-in-a-maze">
+                                <img
+                                    className="img-fluid w-20 shadowB"
+                                    src={RatThumb}
+                                    alt="Rat In A Maze"
+                                />
+                                <p className="text-dark thumb-title">
+                                    Rat In A Maze
+                                </p>
                             </NavLink>
                         </div>
                     </div>
