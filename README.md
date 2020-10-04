@@ -1,5 +1,5 @@
 ## Visualisation of Famous Algorithms
-<img src="https://i.ibb.co/wwx67ZJ/homepage.png" />
+<img src="https://i.ibb.co/gTLxDRb/Annotation-2020-10-04-061537.png" />
 
 # How to run this project ?
 
