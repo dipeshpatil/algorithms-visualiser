@@ -1,24 +1,5 @@
-## Latest Added
-
-# Pathfinding Visualiser
-
-<img src="https://raw.githubusercontent.com/dipeshpatil/algorithms-visualiser/master/src/pathFinderVisualiser/pathfinderss.png" />
-
-# Sorting Algorithms Visualiser
-
-<img src="https://raw.githubusercontent.com/dipeshpatil/algorithms-visualiser/master/src/sortingAlgorithms/sortingss.png" />
-
-# N Queens Problem Visualiser
-
-<img src="https://raw.githubusercontent.com/dipeshpatil/algorithms-visualiser/master/src/backTrackingAlgorithms/nQueensProblem/nqueens.png" />
-
-# Linear Search Visualiser
-
-<img src="https://raw.githubusercontent.com/dipeshpatil/algorithms-visualiser/master/src/searchingAlgorithms/linearSearch/linearsearchss.png" />
-
-# Binary Search Visualiser
-
-<img src="https://raw.githubusercontent.com/dipeshpatil/algorithms-visualiser/master/src/searchingAlgorithms/binarySearch/binarysearchss.png" />
+## Visualisation of Famous Algorithms
+<img src="https://i.ibb.co/gTLxDRb/Annotation-2020-10-04-061537.png" />
 
 # How to run this project ?
 
