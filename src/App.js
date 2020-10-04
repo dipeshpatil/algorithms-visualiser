@@ -6,6 +6,9 @@ import { Route } from "react-router-dom";
 //IndexTable
 import IndexTable from "./utils/indexTable";
 
+// Word Search
+import WordSearch from "./wordSearchVisualiser/wordSearch";
+
 // Sorting Visualiser
 import SortingVisualiser from "./sortingAlgorithms/sortingVisualiser";
 
@@ -39,6 +42,7 @@ export default class App extends React.Component {
                 <Route path="/n-queens-problem" component={NQueensProblem} />
                 <Route path="/rat-in-a-maze" component={RatInAMazeProblem} />
                 <Route path="/pathfinder" component={PathFinderVisualiser} />
+                <Route path="/word-search" component={WordSearch} />
             </div>
         );
     }

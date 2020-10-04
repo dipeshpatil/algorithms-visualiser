@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
+:root {
+    --ws-grid-cols: 1;
+    --ws-grid-rows: 1;
+}
+
+@keyframes ws-popupBlock {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.ws-popupBlocks {
+    animation-name: ws-popupBlock;
+    animation-timing-function: ease-in;
+    animation-duration: 400ms;
+    animation-delay: 400ms;
+    animation-fill-mode: forwards;
+    animation-direction: normal;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+.ws-box {
+    padding: 5px;
+}
+
+.ws-grid {
+    display: grid;
+    grid-gap: 0 0;
+    padding: 2px;
+    grid-template-rows: repeat(var(--ws-grid-rows), 1fr);
+    grid-template-columns: repeat(var(--ws-grid-cols), 1fr);
+}
+
+.default-cell {
+    background-color: #dfe6e9;
+    color: #000;
+}
+
+.found-cell {
+    background-color: #00b894;
+    color: #fff;
+}
+
+.not-found-cell {
+    background-color: #ea2027;
+    color: #fff;
+}
+
+.testing {
+    background-color: #5352ed;
+    color: #fff;
+}
+
+@media screen and (min-device-width: 801px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1) {
+    .ws-cell {
+        display: inline-block;
+        margin: 1px;
+        text-align: center;
+        padding: 13px;
+        font-size: 21px;
+        font-family: "Roboto Mono", monospace;
+    }
+}
+
+@media screen and (min-device-width: 350px) and (max-device-width: 600px) and (-webkit-min-device-pixel-ratio: 1) {
+    .ws-cell {
+        display: inline-block;
+        margin: 1px;
+        text-align: center;
+        padding: 5px;
+        border-radius: 2px;
+        font-size: 17px;
+        font-family: "Roboto Mono", monospace;
+    }
+}
