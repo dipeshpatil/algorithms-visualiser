@@ -1,7 +1,11 @@
 import generate from "@indutny/maze";
 
-export function generateMaze(grid, ROW, COL) {
-    const maze = generate({ width: COL, height: ROW });
+export function generateMaze(grid = []) {
+    const ROW = grid.length,
+        COL = grid[0].length;
+
+    const maze = generate({ width: ROW, height: COL });
+
     for (let i = 0; i < ROW; i++) {
         for (let j = 0; j < COL; j++) {
             const { row, col } = grid[i][j];
@@ -14,8 +18,8 @@ export function generateMaze(grid, ROW, COL) {
         }
     }
 
-    for (let i = 0; i < ROW; i++) {
-        for (let j = 0; j < COL; j++) {
+    for (let i = 0; i < grid.length; i++) {
+        for (let j = 0; j < grid[0].length; j++) {
             if (
                 !grid[i][j].isStart &&
                 !grid[i][j].isFinish &&

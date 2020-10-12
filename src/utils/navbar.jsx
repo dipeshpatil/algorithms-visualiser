@@ -8,7 +8,7 @@ const NavBar = () => (
                 href="https://github.com/dipeshpatil/algorithms-visualiser"
             >
                 <i className="fab text-light fa-github"></i>
-                &nbsp; Repo URL
+                &nbsp; Source Code
             </a>
             <a
                 className="btn-sm text-decoration-none bg-dark rounded-0 text-light"

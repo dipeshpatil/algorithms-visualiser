@@ -113,44 +113,6 @@ function getNeighbors(grid = [], currentNode) {
         neighbors.push(grid[row][col + 1]);
     }
 
-    // Diagonal Nodes
-    // if (
-    //     row - 1 >= 0 &&
-    //     row - 1 < ROWS &&
-    //     col - 1 >= 0 &&
-    //     col - 1 < COLS &&
-    //     !grid[row - 1][col - 1].isWall
-    // ) {
-    //     neighbors.push(grid[row - 1][col - 1]);
-    // }
-    // if (
-    //     row - 1 >= 0 &&
-    //     row - 1 < ROWS &&
-    //     col + 1 >= 0 &&
-    //     col + 1 < COLS &&
-    //     !grid[row - 1][col + 1].isWall
-    // ) {
-    //     neighbors.push(grid[row - 1][col + 1]);
-    // }
-    // if (
-    //     row + 1 >= 0 &&
-    //     row + 1 < ROWS &&
-    //     col - 1 >= 0 &&
-    //     col - 1 < COLS &&
-    //     !grid[row + 1][col - 1].isWall
-    // ) {
-    //     neighbors.push(grid[row + 1][col - 1]);
-    // }
-    // if (
-    //     row + 1 >= 0 &&
-    //     row + 1 < ROWS &&
-    //     col + 1 >= 0 &&
-    //     col + 1 < COLS &&
-    //     !grid[row + 1][col + 1].isWall
-    // ) {
-    //     neighbors.push(grid[row + 1][col + 1]);
-    // }
-
     return neighbors;
 }
 

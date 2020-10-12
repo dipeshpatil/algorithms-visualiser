@@ -26,6 +26,15 @@ const ComplexityTable = () => (
                     </td>
                 </tr>
                 <tr>
+                    <td className="text-primary">DFS</td>
+                    <td>
+                        O(V + E) = O(b<sup>d</sup>)
+                    </td>
+                    <td>
+                        O(V) = O(b<sup>d</sup>)
+                    </td>
+                </tr>
+                <tr>
                     <td className="text-primary">A* Search</td>
                     <td>O(E)</td>
                     <td>O(V)</td>

@@ -4,7 +4,7 @@ import "./Cell.css";
 
 export default class Cell extends React.Component {
     render() {
-        const { row, col, val, found, visited } = this.props;
+        const { row, col, val, found } = this.props;
 
         const extraClass = found ? "found-cell" : "default-cell";
 

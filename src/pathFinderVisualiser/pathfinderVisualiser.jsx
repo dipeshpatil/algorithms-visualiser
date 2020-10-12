@@ -1,27 +1,21 @@
 import React from "react";
 
-// Importing Node Component to display Node on Grid
+//  Importing Node Component to display Node on Grid
 import Node from "./Node/Node";
 
-// Array Conversion Functions
-import {
-    convert1Dto2DArray,
-    convert2Dto1DArray,
-} from "./pathfinder-utils/arrayConversions";
-
-// Pathfinding Algorithms
+//  Pathfinding Algorithms
 import { dijkstra } from "./pathFindingAlgorithms/dijkstra";
 import { bfs } from "./pathFindingAlgorithms/breadthFirstSearch";
 import { dfs } from "./pathFindingAlgorithms/depthFirstSearch";
 import { astar } from "./pathFindingAlgorithms/astar";
 import { bidirectionalSearch } from "./pathFindingAlgorithms/bidirectionalSearch";
 
-// Maze Generation Algorithm
+//  Maze Generation Algorithm
 import { generateMaze } from "./generateMaze";
 
 import BackBar from "./../utils/backbar";
 
-// Highlight Board Functions
+//  Highlight Board Functions
 import {
     highlightGrid,
     unHighlightGrid,
@@ -29,27 +23,27 @@ import {
     unHighlightGridDiagonals,
 } from "./pathfinder-utils/highlightMazeNodes";
 
-// Legend Component
+//  Legend Component
 import Legend from "./pathfinder-utils/legend";
 
-// Complexity table
+//  Complexity table
 import ComplexityTable from "./pathfinder-utils/complexityTable";
 
-//Stylesheets
+//  Stylesheets
 import "./pathfinderVisualiser.css";
 
-const x = 3;
+const x = 7;
 const ROWS = 46 - x;
 const COLS = 46 - x;
 
-// Constants to toggle Start/Finish/Wall on Grid
+//  Constants to toggle Start/Finish/Wall on Grid
 const START_NODE_STATE = 1;
 const END_NODE_STATE = 2;
 const WALL_NODE_STATE = 3;
 
 const SPEED = 25;
 
-export default class PathFinderVisualiser extends React.Component {
+export default class PathFinderVisualiser2 extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -74,14 +68,18 @@ export default class PathFinderVisualiser extends React.Component {
     }
 
     setUpGrid() {
-        const grid = [];
-
         const gridBox = document.getElementById("grid");
         gridBox.style.setProperty("--p-grid-rows", ROWS);
         gridBox.style.setProperty("--p-grid-cols", COLS);
 
-        for (let i = 0; i < ROWS; i++)
-            for (let j = 0; j < COLS; j++) grid.push(this.createNode(i, j));
+        const grid = new Array(COLS);
+
+        for (let i = 0; i < ROWS; i++) {
+            grid[i] = new Array(ROWS);
+            for (let j = 0; j < COLS; j++) {
+                grid[i][j] = this.createNode(i, j);
+            }
+        }
 
         this.setState({ grid });
     }
@@ -90,13 +88,15 @@ export default class PathFinderVisualiser extends React.Component {
         this.setUpGrid();
         const grid = this.state.grid;
         for (let i = 0; i < grid.length; i++) {
-            const node = grid[i];
-            document
-                .getElementById(`node-${node.row}-${node.col}`)
-                .classList.remove("node-visited");
-            document
-                .getElementById(`node-${node.row}-${node.col}`)
-                .classList.remove("node-shortest-path");
+            for (let j = 0; j < grid[0].length; j++) {
+                const node = grid[i][j];
+                document
+                    .getElementById(`node-${node.row}-${node.col}`)
+                    .classList.remove("node-visited");
+                document
+                    .getElementById(`node-${node.row}-${node.col}`)
+                    .classList.remove("node-shortest-path");
+            }
         }
         this.setState({
             disableMazesButton: false,
@@ -131,10 +131,8 @@ export default class PathFinderVisualiser extends React.Component {
             FINISH_NODE_ROW,
         } = this.state;
 
-        const d2Grid = convert1Dto2DArray(grid, ROWS, COLS);
-
-        const STARTNODE = d2Grid[START_NODE_ROW][START_NODE_COL];
-        const FINISHNODE = d2Grid[FINISH_NODE_ROW][FINISH_NODE_COL];
+        const STARTNODE = grid[START_NODE_ROW][START_NODE_COL];
+        const FINISHNODE = grid[FINISH_NODE_ROW][FINISH_NODE_COL];
 
         var visitedNodesInOrder, nodesInShortestPathOrder;
 
@@ -148,21 +146,21 @@ export default class PathFinderVisualiser extends React.Component {
                 return;
             case 1:
                 [visitedNodesInOrder, nodesInShortestPathOrder] = dijkstra(
-                    d2Grid,
+                    grid,
                     STARTNODE,
                     FINISHNODE
                 );
                 break;
             case 2:
                 [visitedNodesInOrder, nodesInShortestPathOrder] = bfs(
-                    d2Grid,
+                    grid,
                     STARTNODE,
                     FINISHNODE
                 );
                 break;
             case 3:
                 [visitedNodesInOrder, nodesInShortestPathOrder] = astar(
-                    d2Grid,
+                    grid,
                     STARTNODE,
                     FINISHNODE
                 );
@@ -173,18 +171,15 @@ export default class PathFinderVisualiser extends React.Component {
                     dest_visited,
                     sPathNodes,
                     dPathNodes,
-                ] = bidirectionalSearch(d2Grid, STARTNODE, FINISHNODE);
+                ] = bidirectionalSearch(grid, STARTNODE, FINISHNODE);
 
-                this.animatePath(
-                    source_visited,
-                    sPathNodes
-                );
+                this.animatePath(source_visited, sPathNodes);
                 this.animatePath(dest_visited, dPathNodes);
 
                 return;
             case 5:
                 [visitedNodesInOrder, nodesInShortestPathOrder] = dfs(
-                    d2Grid,
+                    grid,
                     STARTNODE,
                     FINISHNODE
                 );
@@ -213,31 +208,21 @@ export default class PathFinderVisualiser extends React.Component {
 
     highlightDiagonals() {
         if (this.state.isGridDiagonalsHighlighted) {
-            const nodes = convert1Dto2DArray(
-                this.state.grid.slice(),
-                ROWS,
-                COLS
-            );
-            highlightGridDiagonals(nodes, ROWS, COLS);
+            highlightGridDiagonals(this.state.grid, ROWS, COLS);
         }
     }
 
     unHighlightDiagonals() {
         if (this.state.isGridDiagonalsHighlighted) {
-            const nodes = convert1Dto2DArray(
-                this.state.grid.slice(),
-                ROWS,
-                COLS
-            );
-            unHighlightGridDiagonals(nodes, ROWS, COLS);
+            unHighlightGridDiagonals(this.state.grid, ROWS, COLS);
         }
     }
 
     toggleStartOrFinish(grid = [], row, col, NODE_ROW, NODE_COL, nodeType) {
         const newGrid = grid.slice();
 
-        const currentNode = newGrid[ROWS * NODE_ROW + NODE_COL];
-        const newNode = newGrid[ROWS * row + col];
+        const currentNode = newGrid[NODE_ROW][NODE_COL];
+        const newNode = newGrid[row][col];
 
         if (nodeType === "START") {
             if (newNode.isWall || newNode.isFinish) {
@@ -268,7 +253,7 @@ export default class PathFinderVisualiser extends React.Component {
 
     toggleWall(grid, row, col) {
         const newGrid = grid.slice();
-        const currentNode = newGrid[ROWS * row + col];
+        const currentNode = newGrid[row][col];
         if (!currentNode.isFinish && !currentNode.isStart) {
             currentNode.isWall = !currentNode.isWall;
             this.setState({ grid: newGrid });
@@ -354,18 +339,16 @@ export default class PathFinderVisualiser extends React.Component {
         this.setState({ modifyingNodeState: STATE });
     }
 
-    generateMaze(grid) {
+    generateMaze(grid = []) {
         this.setState({
             disableMazesButton: true,
             disableClearMazeButton: false,
         });
-        const twoDArray = convert1Dto2DArray(grid, ROWS, COLS);
-        const mazeGrid = generateMaze(twoDArray, ROWS, COLS);
-        const OneDArray = convert2Dto1DArray(mazeGrid);
-        this.setState({ grid: OneDArray });
+        const mazeGrid = generateMaze(grid, ROWS, COLS);
+        this.setState({ grid: mazeGrid });
     }
 
-    animatePath(visitedNodesInOrder, nodesInShortestPathOrder) {
+    animatePath(visitedNodesInOrder = [], nodesInShortestPathOrder = []) {
         this.setState({ disableNodesButton: true, highlightMazeNodes: false });
         for (let i = 0; i <= visitedNodesInOrder.length; i++) {
             if (i === visitedNodesInOrder.length) {
@@ -385,7 +368,7 @@ export default class PathFinderVisualiser extends React.Component {
         }
     }
 
-    animateShortestPath(nodesInShortestPathOrder) {
+    animateShortestPath(nodesInShortestPathOrder = []) {
         for (let i = 0; i < nodesInShortestPathOrder.length; i++) {
             setTimeout(() => {
                 const node = nodesInShortestPathOrder[i];
@@ -419,7 +402,7 @@ export default class PathFinderVisualiser extends React.Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-sm-7 mb-1">
-                            <div className="box shadowT mb-2">
+                            <div className="box rounded shadowT mt-1 mb-2">
                                 <div
                                     onMouseOut={() =>
                                         this.unHighlightDiagonals()
@@ -431,47 +414,49 @@ export default class PathFinderVisualiser extends React.Component {
                                     className="grid"
                                 >
                                     {grid.map((node, idx) => {
-                                        const {
-                                            row,
-                                            col,
-                                            isStart,
-                                            isFinish,
-                                            isWall,
-                                        } = node;
-                                        return (
-                                            <Node
-                                                key={idx}
-                                                col={col}
-                                                isFinish={isFinish}
-                                                isStart={isStart}
-                                                isWall={isWall}
-                                                row={row}
-                                                onNodeClick={(row, col) =>
-                                                    this.handleNodeOperations(
-                                                        row,
-                                                        col,
-                                                        modifyingNodeState
-                                                    )
-                                                }
-                                                onNodeOver={(row, col) =>
-                                                    this.highlightNodes(
-                                                        row,
-                                                        col
-                                                    )
-                                                }
-                                                onNodeOut={(row, col) =>
-                                                    this.unHighlightNodes(
-                                                        row,
-                                                        col
-                                                    )
-                                                }
-                                            />
-                                        );
+                                        return node.map((cell, idx) => {
+                                            const {
+                                                row,
+                                                col,
+                                                isStart,
+                                                isFinish,
+                                                isWall,
+                                            } = cell;
+                                            return (
+                                                <Node
+                                                    key={`${row}-${col}`}
+                                                    col={col}
+                                                    isFinish={isFinish}
+                                                    isStart={isStart}
+                                                    isWall={isWall}
+                                                    row={row}
+                                                    onNodeClick={(row, col) =>
+                                                        this.handleNodeOperations(
+                                                            row,
+                                                            col,
+                                                            modifyingNodeState
+                                                        )
+                                                    }
+                                                    onNodeOver={(row, col) =>
+                                                        this.highlightNodes(
+                                                            row,
+                                                            col
+                                                        )
+                                                    }
+                                                    onNodeOut={(row, col) =>
+                                                        this.unHighlightNodes(
+                                                            row,
+                                                            col
+                                                        )
+                                                    }
+                                                />
+                                            );
+                                        });
                                     })}
                                 </div>
                             </div>
                         </div>
-                        <div className="col-sm-5 shadowT rounded-b mb-2 bg-light">
+                        <div className="col-sm-5 shadowT mt-1 mb-2 bg-light">
                             <div className="btn-group btn-block mt-2">
                                 <button
                                     type="button"
@@ -496,7 +481,7 @@ export default class PathFinderVisualiser extends React.Component {
                                 <button
                                     type="button"
                                     disabled={disableNodesButton}
-                                    className="btn btn-dark"
+                                    className="btn bg-wall"
                                     onClick={() =>
                                         this.modifyNodeState(WALL_NODE_STATE)
                                     }
@@ -508,7 +493,7 @@ export default class PathFinderVisualiser extends React.Component {
                                 <button
                                     type="button"
                                     disabled={disableMazesButton}
-                                    className="btn btn-secondary"
+                                    className="btn btn-success"
                                     onClick={() => this.generateMaze(grid)}
                                 >
                                     Generate Maze

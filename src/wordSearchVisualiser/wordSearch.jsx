@@ -77,7 +77,9 @@ export default class WordSearch extends React.Component {
         const founds = animations.slice();
         const highlightSection = [];
         for (let k = 0; k < founds.length; k++) {
-            const [i, j, test, found] = founds[k];
+            let i = founds[k][0],
+                j = founds[k][1],
+                found = founds[k][3];
             if (found === "found") highlightSection.push([i, j]);
         }
 

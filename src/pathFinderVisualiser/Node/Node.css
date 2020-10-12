@@ -5,6 +5,7 @@
 
 .box {
     padding: 5px;
+    background-color: #fff;
 }
 
 .grid {
@@ -17,7 +18,7 @@
 }
 
 .node {
-    padding-top: 107%;
+    padding-top: 108%;
     background-color: #fff;
 }
 
@@ -35,49 +36,41 @@
 }
 
 .node-finish {
-    background-color: #12f893;
+    background-color: #0652dd;
     transition: ease-in-out 200ms;
 }
 
 .node-wall {
-    background-color: #212f3c;
+    background-color: #130f40;
     transition: all 250ms;
 }
 
 .node-shortest-path {
-    background-color: yellow;
+    background-color: #ffc312;
     transition: ease-in-out 25ms;
 }
 
 .node-visited {
-    background-color: blueviolet;
-    transition: ease-in-out 100ms;
-}
-
-.node-visited-s {
-    background-color: #f895aa;
-    transition: ease-in-out 100ms;
-}
-
-.node-visited-d {
-    background-color: #94f8cd;
+    background-color: #12cbc4;
     transition: ease-in-out 100ms;
 }
 
 .bg-start {
     background-color: #f81245 !important;
-    color: white !important;
+    color: #fff !important;
 }
+
 .bg-end {
-    background-color: #12f893 !important;
-    color: black !important;
+    background-color: #0652dd !important;
+    color: #fff !important;
 }
+
 .bg-wall {
-    background-color: #e5e8e8 !important;
-    color: black !important;
+    background-color: #130f40 !important;
+    color: #fff !important;
 }
 
 .bg-purple {
-    background-color: blueviolet !important;
-    color: white !important;
+    background-color: #12cbc4 !important;
+    color: #fff !important;
 }

@@ -3,26 +3,27 @@ import React from "react";
 import NavBar from "./utils/navbar";
 import { Route } from "react-router-dom";
 
-//IndexTable
+//  IndexTable
 import IndexTable from "./utils/indexTable";
 
-// Word Search
+//  Word Search
 import WordSearch from "./wordSearchVisualiser/wordSearch";
 
-// Sorting Visualiser
+//  Pathfinding Visualiser
+import PathFinderVisualiser from "./pathFinderVisualiser/pathfinderVisualiser";
+
+//  Sorting Visualiser
 import SortingVisualiser from "./sortingAlgorithms/sortingVisualiser";
 
-// Searching Visualiser
+//  Searching Visualiser
 import BinarySearch from "./searchingAlgorithms/binarySearch/binarySearch";
 import LinearSearch from "./searchingAlgorithms/linearSearch/linearSearch";
 
-// Backtracking Visualiser
+//  Backtracking Visualiser
 import NQueensProblem from "./backTrackingAlgorithms/nQueensProblem/nQueensProblem";
 import RatInAMazeProblem from "./backTrackingAlgorithms/ratInAMaze/ratInAMaze";
 
-import PathFinderVisualiser from "./pathFinderVisualiser/pathfinderVisualiser";
-
-// Stylesheets
+//  Stylesheets
 import "./App.css";
 
 export default class App extends React.Component {
