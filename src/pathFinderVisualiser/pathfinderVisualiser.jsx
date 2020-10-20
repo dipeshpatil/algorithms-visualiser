@@ -105,6 +105,33 @@ export default class PathFinderVisualiser2 extends React.Component {
         });
     }
 
+    // clearPath() {
+    //     const grid = this.state.grid;
+    //     console.log(grid);
+    //     for (let i = 0; i < ROWS; i++) {
+    //         for (let j = 0; j < COLS; j++) {
+    //             let node = grid[i][j];
+    //             if (!node.isFinish && !node.isStart && !node.isWall) {
+    //                 const { row, col } = node;
+    //                 document
+    //                     .getElementById(`node-${row}-${col}`)
+    //                     .classList.remove("node-shortest-path");
+    //                 document
+    //                     .getElementById(`node-${row}-${col}`)
+    //                     .classList.remove("node-visited");
+    //                 this.state.grid[i][j].isVisited = false;
+    //                 this.state.grid[i][j].previousNode = null;
+    //             }
+    //         }
+    //     }
+    //     this.setState({
+    //         disableMazesButton: false,
+    //         disableNodesButton: false,
+    //         highlightMazeNodes: true,
+    //         grid: grid,
+    //     });
+    // }
+
     selectAlgorithm() {
         const algorithm = parseInt(
             document.getElementById("pathFindingAlgoDropDown").value
@@ -506,6 +533,14 @@ export default class PathFinderVisualiser2 extends React.Component {
                                 >
                                     Clear Maze
                                 </button>
+                                {/* <button
+                                    type="button"
+                                    disabled={disableClearMazeButton}
+                                    className="btn btn-primary"
+                                    onClick={() => this.clearPath()}
+                                >
+                                    Clear Path
+                                </button> */}
                             </div>
                             <div className="btn-group btn-block mt-2">
                                 <div className="input-group">

@@ -2,14 +2,14 @@ import React from "react";
 
 import { randomIntFromInterval } from "../utils/randomIntFromInterval";
 import ComplexityTable from "./complexityTable";
-import {
-    getMergeSortAnimations,
-    getBubbleSortAnimations,
-    getInsertionSortAnimations,
-    getSelectionSortAnimations,
-    getQuickSortAnimations,
-    getHeapSortAnimations,
-} from "./sortingAlgorithms";
+
+//  Sorting Algorithms
+import { getBubbleSortAnimations } from "./sortingAlgorithms/bubbleSort";
+import { getInsertionSortAnimations } from "./sortingAlgorithms/insertionSort";
+import { getSelectionSortAnimations } from "./sortingAlgorithms/selectionSort";
+import { getQuickSortAnimations } from "./sortingAlgorithms/quickSort";
+import { getMergeSortAnimations } from "./sortingAlgorithms/mergeSort";
+import { getHeapSortAnimations } from "./sortingAlgorithms/heapSort";
 
 import cellColors from "./cellColors";
 
