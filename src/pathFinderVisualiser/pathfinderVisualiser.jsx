@@ -32,15 +32,50 @@ import ComplexityTable from "./pathfinder-utils/complexityTable";
 //  Stylesheets
 import "./pathfinderVisualiser.css";
 
-const ROWS = 57;
-const COLS = 57;
-
 //  Constants to toggle Start/Finish/Wall on Grid
 const START_NODE_STATE = 1;
 const END_NODE_STATE = 2;
 const WALL_NODE_STATE = 3;
 
 const SPEED = 25;
+
+var SCREEN_WIDTH = window.screen.width;
+var ROWS, COLS;
+
+// TVs and Large Screen Laptops
+if (SCREEN_WIDTH > 1440 && SCREEN_WIDTH <= 2560) {
+    ROWS = 61;
+    COLS = 61;
+}
+
+// Laptops & Tablets
+if (SCREEN_WIDTH >= 768 && SCREEN_WIDTH <= 1440) {
+    ROWS = 53;
+    COLS = 53;
+}
+
+// IPads and Smaller Laptops
+else if (SCREEN_WIDTH > 425 && SCREEN_WIDTH <= 767) {
+    ROWS = 47;
+    COLS = 47;
+}
+
+// Mobile Devices
+else if (SCREEN_WIDTH >= 320 && SCREEN_WIDTH <= 425) {
+    ROWS = 37;
+    COLS = 37;
+}
+
+// Mobile Devices with Smaller Screens
+else if (SCREEN_WIDTH >= 120 && SCREEN_WIDTH <= 319) {
+    ROWS = 20;
+    COLS = 20;
+} else {
+    ROWS = 41;
+    COLS = 41;
+}
+
+console.log(`Rows: ${ROWS}, Cols: ${COLS}`);
 
 export default class PathFinderVisualiser2 extends React.Component {
     constructor(props) {
