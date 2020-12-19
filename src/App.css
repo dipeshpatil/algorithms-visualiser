@@ -1,8 +1,20 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css");
 
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
 /* body {
     background-color: #fff !important;
 } */
+
+.maskText {
+    font-family: "Bebas Neue", cursive;
+    font-size: 3rem;
+    line-height: 1;
+    color: #212121;
+    letter-spacing: 2px;
+    text-align: center;
+    font-weight: 700;
+}
 
 .nav-link,
 .dropdown-item {
@@ -27,6 +39,6 @@
     cursor: pointer;
 }
 
-.thumb-title{
+.thumb-title {
     margin-top: 5px;
 }

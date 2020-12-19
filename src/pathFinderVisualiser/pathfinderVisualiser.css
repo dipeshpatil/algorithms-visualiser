@@ -25,7 +25,7 @@ body {
 }
 
 .nmt-5 {
-    margin-top: -5px;
+    margin-top: 2px;
 }
 
 .legend-start {
@@ -37,11 +37,11 @@ body {
 }
 
 .legend-visited {
-    background-color: #12cbc4;
+    background-color: blueviolet;
 }
 
 .legend-shortest-path {
-    background-color: #ffc312;
+    background-color: yellow;
 }
 
 .legend-wall {

@@ -1,3 +1,7 @@
+/**
+ * @author Dipesh Vinod Patil <thedipeshpatil@gmail.com>
+ */
+
 import React from "react";
 
 //  Importing Node Component to display Node on Grid
@@ -37,47 +41,50 @@ const START_NODE_STATE = 1;
 const END_NODE_STATE = 2;
 const WALL_NODE_STATE = 3;
 
-const SPEED = 25;
+// Speed Factor
+var SPEED;
 
+// Screen Resolution
 var SCREEN_WIDTH = window.screen.width;
 var ROWS, COLS;
 
-// TVs and Large Screen Laptops
+// Adjusting the Grid according to Screen Width
+// For better responsiveness and interactivity.
 if (SCREEN_WIDTH > 1440 && SCREEN_WIDTH <= 2560) {
+    // TVs and Large Screen Laptops
     ROWS = 61;
     COLS = 61;
-}
-
-// Laptops & Tablets
-if (SCREEN_WIDTH >= 768 && SCREEN_WIDTH <= 1440) {
+    SPEED = 10;
+} else if (SCREEN_WIDTH >= 768 && SCREEN_WIDTH <= 1440) {
+    // Laptops & Tablets
     ROWS = 53;
     COLS = 53;
-}
-
-// IPads and Smaller Laptops
-else if (SCREEN_WIDTH > 425 && SCREEN_WIDTH <= 767) {
+    SPEED = 15;
+} else if (SCREEN_WIDTH > 425 && SCREEN_WIDTH <= 767) {
+    // IPads and Smaller Laptops
     ROWS = 47;
     COLS = 47;
-}
-
-// Mobile Devices
-else if (SCREEN_WIDTH >= 320 && SCREEN_WIDTH <= 425) {
+    SPEED = 20;
+} else if (SCREEN_WIDTH >= 320 && SCREEN_WIDTH <= 425) {
+    // Mobile Devices
     ROWS = 37;
     COLS = 37;
-}
-
-// Mobile Devices with Smaller Screens
-else if (SCREEN_WIDTH >= 120 && SCREEN_WIDTH <= 319) {
-    ROWS = 20;
-    COLS = 20;
+    SPEED = 25;
+} else if (SCREEN_WIDTH >= 120 && SCREEN_WIDTH <= 319) {
+    // Mobile Devices with Smaller Screens
+    ROWS = 21;
+    COLS = 21;
+    SPEED = 25;
 } else {
+    // Default Case
     ROWS = 41;
     COLS = 41;
+    SPEED = 18;
 }
 
 console.log(`Rows: ${ROWS}, Cols: ${COLS}`);
 
-export default class PathFinderVisualiser2 extends React.Component {
+export default class PathFinderVisualiser extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -118,6 +125,30 @@ export default class PathFinderVisualiser2 extends React.Component {
         this.setState({ grid });
     }
 
+    createNode(row, col) {
+        const {
+            START_NODE_ROW,
+            START_NODE_COL,
+            FINISH_NODE_ROW,
+            FINISH_NODE_COL,
+        } = this.state;
+        return {
+            row,
+            col,
+            isStart: row === START_NODE_ROW && col === START_NODE_COL,
+            isFinish: row === FINISH_NODE_ROW && col === FINISH_NODE_COL,
+            distance: Infinity,
+            isVisited: false,
+            isWall: false,
+            previousNode: null,
+            cost: {
+                F: Infinity,
+                G: Infinity,
+                H: Infinity,
+            },
+        };
+    }
+
     clearBoard() {
         this.setUpGrid();
         const grid = this.state.grid;
@@ -137,6 +168,139 @@ export default class PathFinderVisualiser2 extends React.Component {
             disableNodesButton: false,
             highlightMazeNodes: true,
         });
+    }
+
+    highlightNodes(row, col) {
+        if (this.state.highlightMazeNodes) {
+            highlightGrid(row, col, ROWS, COLS);
+        }
+    }
+
+    unHighlightNodes(row, col) {
+        if (this.state.highlightMazeNodes) {
+            unHighlightGrid(row, col, ROWS, COLS);
+        }
+    }
+
+    // change `isGridDiagonalsHighlighted` to true in state
+    // to highlight diagonals on board
+
+    highlightDiagonals() {
+        if (this.state.isGridDiagonalsHighlighted) {
+            highlightGridDiagonals(this.state.grid, ROWS, COLS);
+        }
+    }
+
+    unHighlightDiagonals() {
+        if (this.state.isGridDiagonalsHighlighted) {
+            unHighlightGridDiagonals(this.state.grid, ROWS, COLS);
+        }
+    }
+
+    handleNodeOperations(row, col, NODE_STATE) {
+        const {
+            START_NODE_ROW,
+            START_NODE_COL,
+            FINISH_NODE_ROW,
+            FINISH_NODE_COL,
+            grid,
+        } = this.state;
+        switch (NODE_STATE) {
+            case 1:
+                if (
+                    this.toggleStartOrFinish(
+                        grid,
+                        row,
+                        col,
+                        START_NODE_ROW,
+                        START_NODE_COL,
+                        "START"
+                    )
+                ) {
+                    this.setState({
+                        START_NODE_ROW: row,
+                        START_NODE_COL: col,
+                    });
+                }
+                break;
+            case 2:
+                if (
+                    this.toggleStartOrFinish(
+                        grid,
+                        row,
+                        col,
+                        FINISH_NODE_ROW,
+                        FINISH_NODE_COL,
+                        "FINISH"
+                    )
+                ) {
+                    this.setState({
+                        FINISH_NODE_ROW: row,
+                        FINISH_NODE_COL: col,
+                    });
+                }
+                break;
+            case 3:
+                this.toggleWall(grid, row, col);
+                break;
+            default:
+                break;
+        }
+    }
+
+    toggleStartOrFinish(grid = [], row, col, NODE_ROW, NODE_COL, nodeType) {
+        const newGrid = grid.slice();
+
+        const currentNode = newGrid[NODE_ROW][NODE_COL];
+        const newNode = newGrid[row][col];
+
+        if (nodeType === "START") {
+            if (newNode.isWall || newNode.isFinish) {
+                return false;
+            } else {
+                currentNode.isStart = false;
+                newNode.isStart = true;
+                this.setState({
+                    grid: newGrid,
+                });
+                return true;
+            }
+        } else if (nodeType === "FINISH") {
+            if (newNode.isWall || newNode.isStart) {
+                return false;
+            } else {
+                currentNode.isFinish = false;
+                newNode.isFinish = true;
+                this.setState({
+                    grid: newGrid,
+                });
+                return true;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    toggleWall(grid, row, col) {
+        const newGrid = grid.slice();
+        const currentNode = newGrid[row][col];
+        if (!currentNode.isFinish && !currentNode.isStart) {
+            currentNode.isWall = !currentNode.isWall;
+            this.setState({ grid: newGrid });
+        }
+    }
+
+    generateMaze(grid = []) {
+        this.setState({
+            disableMazesButton: true,
+            disableClearMazeButton: false,
+        });
+        const mazeGrid = generateMaze(grid);
+        this.setState({ grid: mazeGrid });
+    }
+
+    modifyNodeState(STATE) {
+        this.setState({ modifyingNodeState: STATE });
     }
 
     selectAlgorithm() {
@@ -225,170 +389,13 @@ export default class PathFinderVisualiser2 extends React.Component {
         this.animatePath(visitedNodesInOrder, nodesInShortestPathOrder);
     }
 
-    highlightNodes(row, col) {
-        if (this.state.highlightMazeNodes) {
-            highlightGrid(row, col, ROWS, COLS);
-        }
-    }
-
-    unHighlightNodes(row, col) {
-        if (this.state.highlightMazeNodes) {
-            unHighlightGrid(row, col, ROWS, COLS);
-        }
-    }
-
-    // change `isGridDiagonalsHighlighted` to true in state
-    // to highlight diagonals on board
-
-    highlightDiagonals() {
-        if (this.state.isGridDiagonalsHighlighted) {
-            highlightGridDiagonals(this.state.grid, ROWS, COLS);
-        }
-    }
-
-    unHighlightDiagonals() {
-        if (this.state.isGridDiagonalsHighlighted) {
-            unHighlightGridDiagonals(this.state.grid, ROWS, COLS);
-        }
-    }
-
-    toggleStartOrFinish(grid = [], row, col, NODE_ROW, NODE_COL, nodeType) {
-        const newGrid = grid.slice();
-
-        const currentNode = newGrid[NODE_ROW][NODE_COL];
-        const newNode = newGrid[row][col];
-
-        if (nodeType === "START") {
-            if (newNode.isWall || newNode.isFinish) {
-                return false;
-            } else {
-                currentNode.isStart = false;
-                newNode.isStart = true;
-                this.setState({
-                    grid: newGrid,
-                });
-                return true;
-            }
-        } else if (nodeType === "FINISH") {
-            if (newNode.isWall || newNode.isStart) {
-                return false;
-            } else {
-                currentNode.isFinish = false;
-                newNode.isFinish = true;
-                this.setState({
-                    grid: newGrid,
-                });
-                return true;
-            }
-        } else {
-            return false;
-        }
-    }
-
-    toggleWall(grid, row, col) {
-        const newGrid = grid.slice();
-        const currentNode = newGrid[row][col];
-        if (!currentNode.isFinish && !currentNode.isStart) {
-            currentNode.isWall = !currentNode.isWall;
-            this.setState({ grid: newGrid });
-        }
-    }
-
-    handleNodeOperations(row, col, NODE_STATE) {
-        const {
-            START_NODE_ROW,
-            START_NODE_COL,
-            FINISH_NODE_ROW,
-            FINISH_NODE_COL,
-            grid,
-        } = this.state;
-        switch (NODE_STATE) {
-            case 1:
-                if (
-                    this.toggleStartOrFinish(
-                        grid,
-                        row,
-                        col,
-                        START_NODE_ROW,
-                        START_NODE_COL,
-                        "START"
-                    )
-                ) {
-                    this.setState({
-                        START_NODE_ROW: row,
-                        START_NODE_COL: col,
-                    });
-                }
-                break;
-            case 2:
-                if (
-                    this.toggleStartOrFinish(
-                        grid,
-                        row,
-                        col,
-                        FINISH_NODE_ROW,
-                        FINISH_NODE_COL,
-                        "FINISH"
-                    )
-                ) {
-                    this.setState({
-                        FINISH_NODE_ROW: row,
-                        FINISH_NODE_COL: col,
-                    });
-                }
-                break;
-            case 3:
-                this.toggleWall(grid, row, col);
-                break;
-            default:
-                break;
-        }
-    }
-
-    createNode(row, col) {
-        const {
-            START_NODE_ROW,
-            START_NODE_COL,
-            FINISH_NODE_ROW,
-            FINISH_NODE_COL,
-        } = this.state;
-        return {
-            row,
-            col,
-            isStart: row === START_NODE_ROW && col === START_NODE_COL,
-            isFinish: row === FINISH_NODE_ROW && col === FINISH_NODE_COL,
-            distance: Infinity,
-            isVisited: false,
-            isWall: false,
-            previousNode: null,
-            cost: {
-                F: Infinity,
-                G: Infinity,
-                H: Infinity,
-            },
-        };
-    }
-
-    modifyNodeState(STATE) {
-        this.setState({ modifyingNodeState: STATE });
-    }
-
-    generateMaze(grid = []) {
-        this.setState({
-            disableMazesButton: true,
-            disableClearMazeButton: false,
-        });
-        const mazeGrid = generateMaze(grid, ROWS, COLS);
-        this.setState({ grid: mazeGrid });
-    }
-
     animatePath(visitedNodesInOrder = [], nodesInShortestPathOrder = []) {
         this.setState({ disableNodesButton: true, highlightMazeNodes: false });
         for (let i = 0; i <= visitedNodesInOrder.length; i++) {
             if (i === visitedNodesInOrder.length) {
                 setTimeout(() => {
                     this.animateShortestPath(nodesInShortestPathOrder);
-                }, this.state.speed * i);
+                }, SPEED * i);
                 return;
             }
             setTimeout(() => {
@@ -398,7 +405,7 @@ export default class PathFinderVisualiser2 extends React.Component {
                         `node-${node.row}-${node.col}`
                     ).className = "node node-visited";
                 }
-            }, this.state.speed * i);
+            }, SPEED * i);
         }
     }
 
@@ -418,7 +425,7 @@ export default class PathFinderVisualiser2 extends React.Component {
                         });
                     }, 1000);
                 }
-            }, this.state.speed * i);
+            }, SPEED * 1.4 * i);
         }
     }
 
@@ -490,7 +497,7 @@ export default class PathFinderVisualiser2 extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-sm-4 shadowT mt-1 mb-2 bg-light">
+                        <div className="col-sm-4 mt-1 mb-2">
                             <div className="btn-group btn-block mt-2">
                                 <button
                                     type="button"
@@ -520,7 +527,7 @@ export default class PathFinderVisualiser2 extends React.Component {
                                         this.modifyNodeState(WALL_NODE_STATE)
                                     }
                                 >
-                                    Place Wall
+                                    Toggle Wall
                                 </button>
                             </div>
                             <div className="btn-group btn-block mt-2">
@@ -535,7 +542,7 @@ export default class PathFinderVisualiser2 extends React.Component {
                                 <button
                                     type="button"
                                     disabled={disableClearMazeButton}
-                                    className="btn btn-secondary"
+                                    className="btn btn-info"
                                     onClick={() => this.clearBoard()}
                                 >
                                     Clear Maze

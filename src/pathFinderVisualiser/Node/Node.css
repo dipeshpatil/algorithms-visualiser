@@ -4,14 +4,12 @@
 }
 
 .box {
-    padding: 5px;
     background-color: #fff;
 }
 
 .grid {
     display: grid;
     grid-gap: 0 0;
-    padding: 2px;
     background-color: #fff;
     grid-template-rows: repeat(var(--p-grid-rows), 1fr);
     grid-template-columns: repeat(var(--p-grid-cols), 1fr);
@@ -41,17 +39,17 @@
 }
 
 .node-wall {
-    background-color: #130f40;
+    background-color: #212121;
     transition: all 250ms;
 }
 
 .node-shortest-path {
-    background-color: #ffc312;
+    background-color: yellow;
     transition: ease-in-out 25ms;
 }
 
 .node-visited {
-    background-color: #12cbc4;
+    background-color: blueviolet;
     transition: ease-in-out 100ms;
 }
 
@@ -66,11 +64,11 @@
 }
 
 .bg-wall {
-    background-color: #130f40 !important;
+    background-color: #262626 !important;
     color: #fff !important;
 }
 
 .bg-purple {
-    background-color: #12cbc4 !important;
+    background-color: blueviolet !important;
     color: #fff !important;
 }

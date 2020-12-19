@@ -1,33 +1,44 @@
 import React from "react";
 
+const borderStyles = { border: "1px solid #212121" };
+
 const Legend = () => (
-    <div id="legend" className="bg-secondary rounded">
+    <div id="legend" className="bg-light shadowT rounded">
         <div id="legendRow" className="row p-2">
             <div className="col-6">
                 <div className="row">
                     <div className="col-2">
-                        <div className="legend legend-start"></div>
+                        <div
+                            style={borderStyles}
+                            className="legend mt-1 legend-start"
+                        ></div>
                     </div>
                     <div className="col-10 nmt-5">
-                        <div className="text-light font-weight-bold legend-label">
+                        <div className="text-dark font-weight-bold legend-label">
                             Source
                         </div>
                     </div>
 
                     <div className="col-2">
-                        <div className="legend legend-wall"></div>
+                        <div
+                            style={borderStyles}
+                            className="legend mt-1 legend-wall"
+                        ></div>
                     </div>
                     <div className="col-10 nmt-5">
-                        <div className="text-light font-weight-bold legend-label">
+                        <div className="text-dark font-weight-bold legend-label">
                             Wall
                         </div>
                     </div>
 
                     <div className="col-2">
-                        <div className="legend legend-visited"></div>
+                        <div
+                            style={borderStyles}
+                            className="legend mt-1 legend-visited"
+                        ></div>
                     </div>
                     <div className="col-10 nmt-5">
-                        <div className="text-light font-weight-bold legend-label">
+                        <div className="text-dark font-weight-bold legend-label">
                             Visited
                         </div>
                     </div>
@@ -36,28 +47,37 @@ const Legend = () => (
             <div className="col-6">
                 <div className="row">
                     <div className="col-2">
-                        <div className="legend legend-finish"></div>
+                        <div
+                            style={borderStyles}
+                            className="legend mt-1 legend-finish"
+                        ></div>
                     </div>
                     <div className="col-10 nmt-5">
-                        <div className="text-light font-weight-bold legend-label">
+                        <div className="text-dark font-weight-bold legend-label">
                             Destination
                         </div>
                     </div>
 
                     <div className="col-2">
-                        <div className="legend legend-path"></div>
+                        <div
+                            style={borderStyles}
+                            className="legend mt-1 legend-path"
+                        ></div>
                     </div>
                     <div className="col-10 nmt-5">
-                        <div className="text-light font-weight-bold legend-label">
+                        <div className="text-dark font-weight-bold legend-label">
                             Path
                         </div>
                     </div>
 
                     <div className="col-2">
-                        <div className="legend legend-shortest-path"></div>
+                        <div
+                            style={borderStyles}
+                            className="legend mt-1 legend-shortest-path"
+                        ></div>
                     </div>
                     <div className="col-10 nmt-5">
-                        <div className="text-light font-weight-bold legend-label">
+                        <div className="text-dark font-weight-bold legend-label">
                             Shortest Path
                         </div>
                     </div>
