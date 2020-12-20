@@ -94,9 +94,13 @@ export default class PathFinderVisualiser extends React.Component {
             START_NODE_COL: 2,
             FINISH_NODE_ROW: ROWS - 3,
             FINISH_NODE_COL: COLS - 3,
+
             disableMazesButton: false,
             disableNodesButton: false,
             disableClearMazeButton: false,
+            disableClearPathButton: false,
+            disableAlgoDropdown: false,
+            disablePerformButton: false,
 
             highlightMazeNodes: true,
             isGridDiagonalsHighlighted: false,
@@ -106,6 +110,10 @@ export default class PathFinderVisualiser extends React.Component {
 
     componentDidMount() {
         this.setUpGrid();
+        this.setState({
+            disableClearMazeButton: true,
+            disableClearPathButton: true,
+        });
     }
 
     setUpGrid() {
@@ -166,6 +174,36 @@ export default class PathFinderVisualiser extends React.Component {
         this.setState({
             disableMazesButton: false,
             disableNodesButton: false,
+            disableClearPathButton: true,
+            disableClearMazeButton: true,
+            disableAlgoDropdown: false,
+            disablePerformButton: false,
+            highlightMazeNodes: true,
+        });
+    }
+
+    clearPath() {
+        const { grid } = this.state;
+        const temp = grid.slice();
+        for (let i = 0; i < temp.length; i++) {
+            for (let j = 0; j < temp[i].length; j++) {
+                let node = temp[i][j];
+                if (node.isVisited) {
+                    node.isVisited = false;
+                    document
+                        .getElementById(`node-${node.row}-${node.col}`)
+                        .classList.remove("node-visited");
+                    document
+                        .getElementById(`node-${node.row}-${node.col}`)
+                        .classList.remove("node-shortest-path");
+                }
+            }
+        }
+        this.setState({
+            disableMazesButton: true,
+            disableNodesButton: true,
+            disableAlgoDropdown: false,
+            disablePerformButton: false,
             highlightMazeNodes: true,
         });
     }
@@ -293,6 +331,7 @@ export default class PathFinderVisualiser extends React.Component {
     generateMaze(grid = []) {
         this.setState({
             disableMazesButton: true,
+            disableClearPathButton: true,
             disableClearMazeButton: false,
         });
         const mazeGrid = generateMaze(grid);
@@ -319,6 +358,9 @@ export default class PathFinderVisualiser extends React.Component {
             disableNodesButton: true,
             disableMazesButton: true,
             disableClearMazeButton: true,
+            disableClearPathButton: true,
+            disableAlgoDropdown: true,
+            disablePerformButton: true,
             modifyingNodeState: 0,
         });
         const {
@@ -370,10 +412,8 @@ export default class PathFinderVisualiser extends React.Component {
                     sPathNodes,
                     dPathNodes,
                 ] = bidirectionalSearch(grid, STARTNODE, FINISHNODE);
-
                 this.animatePath(source_visited, sPathNodes);
                 this.animatePath(dest_visited, dPathNodes);
-
                 return;
             case 5:
                 [visitedNodesInOrder, nodesInShortestPathOrder] = dfs(
@@ -385,7 +425,6 @@ export default class PathFinderVisualiser extends React.Component {
             default:
                 return;
         }
-
         this.animatePath(visitedNodesInOrder, nodesInShortestPathOrder);
     }
 
@@ -422,6 +461,7 @@ export default class PathFinderVisualiser extends React.Component {
                     setTimeout(() => {
                         this.setState({
                             disableClearMazeButton: false,
+                            disableClearPathButton: false,
                         });
                     }, 1000);
                 }
@@ -436,6 +476,9 @@ export default class PathFinderVisualiser extends React.Component {
             disableMazesButton,
             disableNodesButton,
             disableClearMazeButton,
+            disableClearPathButton,
+            disableAlgoDropdown,
+            disablePerformButton,
         } = this.state;
         return (
             <div>
@@ -547,11 +590,19 @@ export default class PathFinderVisualiser extends React.Component {
                                 >
                                     Clear Maze
                                 </button>
+                                <button
+                                    type="button"
+                                    disabled={disableClearPathButton}
+                                    className="btn btn-warning"
+                                    onClick={() => this.clearPath()}
+                                >
+                                    Clear Path
+                                </button>
                             </div>
                             <div className="btn-group btn-block mt-2">
                                 <div className="input-group">
                                     <select
-                                        disabled={disableNodesButton}
+                                        disabled={disableAlgoDropdown}
                                         id="pathFindingAlgoDropDown"
                                         className="custom-select"
                                         defaultValue="0"
@@ -573,7 +624,7 @@ export default class PathFinderVisualiser extends React.Component {
                                     </select>
                                     <div className="input-group-append">
                                         <button
-                                            disabled={disableNodesButton}
+                                            disabled={disablePerformButton}
                                             onClick={() =>
                                                 this.selectAlgorithm()
                                             }

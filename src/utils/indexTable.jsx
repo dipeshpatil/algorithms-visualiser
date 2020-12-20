@@ -35,7 +35,9 @@ export default class IndexTable extends React.Component {
             <div className="container mt-2">
                 <div className="text-center text-muted">
                     <h1 style={maskStyles} className="maskText mt-1">
-                        Algorithms Visualiser
+                        Algorithms
+                        <br />
+                        Visualiser
                     </h1>
                 </div>
                 <center>

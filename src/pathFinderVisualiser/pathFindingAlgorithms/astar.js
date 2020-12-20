@@ -25,6 +25,7 @@ export function astar(grid = [], startNode, finishNode) {
 
         for (let i = 0; i < neighbors.length; i++) {
             const nNode = neighbors[i];
+            nNode.isVisited = true;
             if (closedlist.includes(nNode)) continue;
 
             nNode.cost.G = calculateCost(nNode, startNode, "E");

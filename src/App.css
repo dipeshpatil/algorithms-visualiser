@@ -1,17 +1,17 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css");
-
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap");
 
 /* body {
     background-color: #fff !important;
 } */
 
 .maskText {
-    font-family: "Bebas Neue", cursive;
-    font-size: 3rem;
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 2.8rem;
     line-height: 1;
     color: #212121;
-    letter-spacing: 2px;
+    text-transform: uppercase;
+    letter-spacing: -3px;
     text-align: center;
     font-weight: 700;
 }
