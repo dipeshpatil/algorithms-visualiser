@@ -44,8 +44,8 @@
     </clipPath>
  
     <linearGradient id="linear-gradient" y1="-17.636" x2="1.197" y2="-17.636" gradientUnits="objectBoundingBox">
-      <stop offset="0" stop-color="#F9184F"/>
-      <stop offset="0.621" stop-color="#F71E45"/>
+      <stop offset="0" stop-color="#11998e"/>
+      <stop offset="0.621" stop-color="#38ef7d"/>
       <stop offset="1" stop-color="red"/>
     </linearGradient>
         
