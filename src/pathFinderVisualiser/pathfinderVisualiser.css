@@ -4,10 +4,6 @@
     font-family: "Open Sans", sans-serif;
 }
 
-body {
-    background-color: #f0f0f0;
-}
-
 .rounded-b {
     border-radius: 5px;
 }
@@ -33,23 +29,19 @@ body {
 }
 
 .legend-finish {
-    background-color: #0652dd;
+    background-color: #2ecc71;
 }
 
 .legend-visited {
-    background-color: blueviolet;
-}
-
-.legend-shortest-path {
-    background-color: yellow;
+    background-color: #ffc312;
 }
 
 .legend-wall {
-    background-color: #262626;
+    background-color: #222f3e;
 }
 
 .legend-path {
-    background-color: #fff;
+    background-color: #576574;
 }
 
 .legend-label {

@@ -483,10 +483,13 @@ export default class PathFinderVisualiser extends React.Component {
         return (
             <div>
                 <BackBar />
-                <div className="container-fluid">
+                <div
+                    className="container-fluid"
+                    style={{ marginTop: "-10px", backgroundColor: "#262626" }}
+                >
                     <div className="row">
-                        <div className="col-sm-8 mb-1">
-                            <div className="box rounded shadowT mt-1 mb-2">
+                        <div className="col-sm-8 mt-2">
+                            <div className="box_p rounded shadowT">
                                 <div
                                     onMouseOut={() =>
                                         this.unHighlightDiagonals()
@@ -540,8 +543,8 @@ export default class PathFinderVisualiser extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-sm-4 mt-1 mb-2">
-                            <div className="btn-group btn-block mt-2">
+                        <div className="col-sm-4 mt-2">
+                            <div className="btn-group btn-block">
                                 <button
                                     type="button"
                                     disabled={disableNodesButton}
@@ -577,7 +580,7 @@ export default class PathFinderVisualiser extends React.Component {
                                 <button
                                     type="button"
                                     disabled={disableMazesButton}
-                                    className="btn btn-success"
+                                    className="btn btn-secondary"
                                     onClick={() => this.generateMaze(grid)}
                                 >
                                     Generate Maze
@@ -585,7 +588,7 @@ export default class PathFinderVisualiser extends React.Component {
                                 <button
                                     type="button"
                                     disabled={disableClearMazeButton}
-                                    className="btn btn-info"
+                                    className="btn btn-danger"
                                     onClick={() => this.clearBoard()}
                                 >
                                     Clear Maze
@@ -593,7 +596,7 @@ export default class PathFinderVisualiser extends React.Component {
                                 <button
                                     type="button"
                                     disabled={disableClearPathButton}
-                                    className="btn btn-warning"
+                                    className="btn btn-primary"
                                     onClick={() => this.clearPath()}
                                 >
                                     Clear Path
@@ -628,7 +631,7 @@ export default class PathFinderVisualiser extends React.Component {
                                             onClick={() =>
                                                 this.selectAlgorithm()
                                             }
-                                            className="btn bg-purple"
+                                            className="btn bg-perform"
                                         >
                                             Perform Search
                                         </button>

@@ -1,9 +1,9 @@
 import React from "react";
 
-const borderStyles = { border: "1px solid #212121" };
+const borderStyles = { border: "1px solid #f0f0f0" };
 
 const Legend = () => (
-    <div id="legend" className="bg-light shadowT rounded">
+    <div id="legend" className="bg-dark shadowT rounded">
         <div id="legendRow" className="row p-2">
             <div className="col-6">
                 <div className="row">
@@ -14,7 +14,7 @@ const Legend = () => (
                         ></div>
                     </div>
                     <div className="col-10 nmt-5">
-                        <div className="text-dark font-weight-bold legend-label">
+                        <div className="text-light font-weight-bold legend-label">
                             Source
                         </div>
                     </div>
@@ -26,7 +26,7 @@ const Legend = () => (
                         ></div>
                     </div>
                     <div className="col-10 nmt-5">
-                        <div className="text-dark font-weight-bold legend-label">
+                        <div className="text-light font-weight-bold legend-label">
                             Wall
                         </div>
                     </div>
@@ -38,7 +38,7 @@ const Legend = () => (
                         ></div>
                     </div>
                     <div className="col-10 nmt-5">
-                        <div className="text-dark font-weight-bold legend-label">
+                        <div className="text-light font-weight-bold legend-label">
                             Visited
                         </div>
                     </div>
@@ -53,7 +53,7 @@ const Legend = () => (
                         ></div>
                     </div>
                     <div className="col-10 nmt-5">
-                        <div className="text-dark font-weight-bold legend-label">
+                        <div className="text-light font-weight-bold legend-label">
                             Destination
                         </div>
                     </div>
@@ -65,20 +65,8 @@ const Legend = () => (
                         ></div>
                     </div>
                     <div className="col-10 nmt-5">
-                        <div className="text-dark font-weight-bold legend-label">
-                            Path
-                        </div>
-                    </div>
-
-                    <div className="col-2">
-                        <div
-                            style={borderStyles}
-                            className="legend mt-1 legend-shortest-path"
-                        ></div>
-                    </div>
-                    <div className="col-10 nmt-5">
-                        <div className="text-dark font-weight-bold legend-label">
-                            Shortest Path
+                        <div className="text-light font-weight-bold legend-label">
+                            Node
                         </div>
                     </div>
                 </div>
