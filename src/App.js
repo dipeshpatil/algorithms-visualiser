@@ -9,7 +9,7 @@ import IndexTable from "./utils/indexTable";
 //  Word Search
 import WordSearch from "./wordSearchVisualiser/wordSearch";
 
-//  Pathfinding Visualiser
+//  Pathfinder Visualiser
 import PathFinderVisualiser from "./pathFinderVisualiser/pathfinderVisualiser";
 
 //  Sorting Visualiser
