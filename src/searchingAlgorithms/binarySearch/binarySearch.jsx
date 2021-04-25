@@ -6,8 +6,6 @@ import { binarySearchAnimations } from "./../searchingAlgorithms";
 import Header from "./../../utils/header";
 import ArrayTile from "./../arrayTile";
 
-import BackBar from "./../../utils/backbar";
-
 //Stylesheets
 import "./binarySearch.css";
 
@@ -130,7 +128,6 @@ export default class BinarySearch extends React.Component {
 
         return (
             <div>
-                <BackBar />
                 <div className="jumbotron jumbotron-fluid bg-light">
                     <center>
                         <Header title="Binary Search" />

@@ -25,6 +25,17 @@ import RatInAMazeProblem from "./backTrackingAlgorithms/ratInAMaze/ratInAMaze";
 
 //  Stylesheets
 import "./App.css";
+import BackBar from "./utils/backbar";
+
+const searchCombined = () => {
+    return (
+        <div>
+            <BackBar />
+            <LinearSearch />
+            <BinarySearch />
+        </div>
+    );
+};
 
 export default class App extends React.Component {
     constructor(props) {
@@ -38,8 +49,7 @@ export default class App extends React.Component {
                 <NavBar />
                 <Route exact path="/" component={IndexTable} />
                 <Route path="/sorting" component={SortingVisualiser} />
-                <Route path="/linear-search" component={LinearSearch} />
-                <Route path="/binary-search" component={BinarySearch} />
+                <Route path="/searching" component={searchCombined} />
                 <Route path="/n-queens-problem" component={NQueensProblem} />
                 <Route path="/rat-in-a-maze" component={RatInAMazeProblem} />
                 <Route path="/pathfinder" component={PathFinderVisualiser} />

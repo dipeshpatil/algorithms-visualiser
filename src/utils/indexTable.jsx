@@ -1,7 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-import LinearThumb from "./thumbs/linear.jpg";
 import BinaryThumb from "./thumbs/binary.jpg";
 import NQueensThumb from "./thumbs/nqueens.jpg";
 import PathThumb from "./thumbs/path.jpg";
@@ -49,7 +48,7 @@ export default class IndexTable extends React.Component {
                                     src={WordSearch}
                                     alt="Word Searching"
                                 />
-                                <p className="text-dark thumb-title">
+                                <p className="text-muted thumb-title">
                                     Word Searching
                                 </p>
                             </NavLink>
@@ -61,7 +60,7 @@ export default class IndexTable extends React.Component {
                                     src={PathThumb}
                                     alt="Path Finding"
                                 />
-                                <p className="text-dark thumb-title">
+                                <p className="text-muted thumb-title">
                                     Path Finding
                                 </p>
                             </NavLink>
@@ -73,7 +72,7 @@ export default class IndexTable extends React.Component {
                                     src={SortingThumb}
                                     alt="Sorting"
                                 />
-                                <p className="text-dark thumb-title">
+                                <p className="text-muted thumb-title">
                                     Sorting Visualiser
                                 </p>
                             </NavLink>
@@ -85,32 +84,20 @@ export default class IndexTable extends React.Component {
                                     src={NQueensThumb}
                                     alt="NQueens"
                                 />
-                                <p className="text-dark thumb-title">
-                                    NQueens Problem
+                                <p className="text-muted thumb-title">
+                                    N-Queens Problem
                                 </p>
                             </NavLink>
                         </div>
                         <div className="col-sm-4 col-6">
-                            <NavLink to="/linear-search">
-                                <img
-                                    className="img-fluid w-20 shadowB"
-                                    src={LinearThumb}
-                                    alt="Linear Search"
-                                />
-                                <p className="text-dark thumb-title">
-                                    Linear Search
-                                </p>
-                            </NavLink>
-                        </div>
-                        <div className="col-sm-4 col-6">
-                            <NavLink to="/binary-search">
+                            <NavLink to="/searching">
                                 <img
                                     className="img-fluid w-20 shadowB"
                                     src={BinaryThumb}
-                                    alt="Binary Search"
+                                    alt="Searching"
                                 />
-                                <p className="text-dark thumb-title">
-                                    Binary Search
+                                <p className="text-muted thumb-title">
+                                    Searching Visualiser
                                 </p>
                             </NavLink>
                         </div>

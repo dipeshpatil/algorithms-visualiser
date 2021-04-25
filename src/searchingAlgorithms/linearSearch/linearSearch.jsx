@@ -5,8 +5,6 @@ import { linearSearchAnimations } from "./../searchingAlgorithms";
 import Header from "./../../utils/header";
 import ArrayTile from "./../arrayTile";
 
-import BackBar from "./../../utils/backbar";
-
 // Stylesheets
 import "./linearSearch.css";
 
@@ -106,7 +104,6 @@ export default class LinearSearch extends React.Component {
 
         return (
             <div>
-                <BackBar />
                 <div className="jumbotron jumbotron-fluid bg-light">
                     <center>
                         <Header title="Linear Search" />
