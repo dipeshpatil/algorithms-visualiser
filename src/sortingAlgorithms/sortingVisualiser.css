@@ -9,10 +9,6 @@
     --grid-rows: 1;
 }
 
-body {
-    background-color: #e5e8e8;
-}
-
 @keyframes popupBlock {
     0% {
         opacity: 0;
@@ -31,7 +27,7 @@ body {
     grid-gap: 0 0;
     padding: 10px;
     border-radius: 3px;
-    background-color: #fff;
+    background-color: #212121;
     grid-template-rows: repeat(var(--grid-rows), 1fr);
     grid-template-columns: repeat(var(--grid-cols), 1fr);
 }

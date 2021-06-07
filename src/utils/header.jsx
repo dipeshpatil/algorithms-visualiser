@@ -1,8 +1,10 @@
 import React from "react";
 
-const Header = ({ title }) => (
+const Header = ({ title, colorName = "white" }) => (
     <div>
-        <h2 className="mt-3 text-center" >{title}</h2>
+        <h2 style={{ color: colorName }} className="mt-3 text-center">
+            {title}
+        </h2>
     </div>
 );
 

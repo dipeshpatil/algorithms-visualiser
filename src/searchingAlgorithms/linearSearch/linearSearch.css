@@ -18,19 +18,29 @@
 }
 
 .l-array-bar {
-    background-color: #6376f1;
+    background-color: #212121;
     display: inline-block;
-    margin: 5px;
     color: #fff;
-    width: 60px;
+    width: 70px;
     text-align: center;
-    padding: 8px;
-    border-radius: 3px;
+    padding: 12px;
+}
+
+.l-array-bar:first-child {
+    border-left: 3px solid #ffc312;
+    border-top: 3px solid #ffc312;
+    border-bottom: 3px solid #ffc312;
+}
+
+.l-array-bar:last-child {
+    border-right: 3px solid #ffc312;
+    border-top: 3px solid #ffc312;
+    border-bottom: 3px solid #ffc312;
 }
 
 .l-array-bar span {
     padding: 3px;
-    background-color: aquamarine;
+    background-color: #ffc312;
     color: #000;
     margin-top: 10px;
     border-radius: 3px;
@@ -56,16 +66,12 @@
 }
 
 .growFind {
-    /* animation-name: growFind;
-    animation-duration: 400ms;
-    animation-fill-mode: forwards;
-    animation-direction: normal; */
-
-    transition: ease-in 500ms;
+    transition: ease-in-out 500ms;
 }
 
 .highlight {
-    transition: ease-in 300ms;
-    transform: scale3d(1.25, 1.25, 1.25);
-    margin: 1.5rem;
+    transition: ease-in-out 300ms;
+    transform: scale3d(1.2, 1.2, 1.2);
+    margin: 1rem;
+    border-radius: 10px;
 }

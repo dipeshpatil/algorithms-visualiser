@@ -1,5 +1,9 @@
 import React from "react";
 
+import InputGroup from "react-bootstrap/InputGroup";
+import FormControl from "react-bootstrap/FormControl";
+import Button from "react-bootstrap/Button";
+
 import { randomIntFromInterval } from "./../../utils/randomIntFromInterval.js";
 import { binarySearchAnimations } from "./../searchingAlgorithms";
 
@@ -9,11 +13,11 @@ import ArrayTile from "./../arrayTile";
 //Stylesheets
 import "./binarySearch.css";
 
-const NUMBER_OF_ARRAY_BARS = 15;
-const DEFAULT_COLOR = "#6376f1";
-const FOUND_COLOR = "#28B463";
-const NOT_FOUND_COLOR = "#F16388";
-const ANIMATION_SPEED_SECONDS = 3;
+const NUMBER_OF_ARRAY_BARS = 20;
+const DEFAULT_COLOR = "#212121";
+const FOUND_COLOR = "#2ecc71";
+const NOT_FOUND_COLOR = "#FA405A";
+const ANIMATION_SPEED_SECONDS = 0.5;
 
 export default class BinarySearch extends React.Component {
     constructor(props) {
@@ -128,40 +132,37 @@ export default class BinarySearch extends React.Component {
 
         return (
             <div>
-                <div className="jumbotron jumbotron-fluid bg-light">
+                <div className="container-fluid p-4">
                     <center>
-                        <Header title="Binary Search" />
-                        <div className="container">
-                            <div className="row">
+                        <Header colorName="white" title="Binary Search" />
+                        <div className="row">
+                            <div className="container">
                                 <div className="col-sm-1"></div>
-                                <div className="input-group col-sm-10">
-                                    <input
+                                <InputGroup className="col-sm-6">
+                                    <FormControl
                                         type="number"
                                         id="binarySearchTargetVal"
-                                        className="form-control"
-                                        placeholder="Find Element"
+                                        placeholder="Find"
                                     />
-                                    <div className="input-group-append">
-                                        <button
-                                            onClick={() => this.binarySearch()}
-                                            className="btn btn-success"
-                                            type="button"
+                                    <InputGroup.Append>
+                                        <Button
                                             id="binarySearchBtn"
+                                            onClick={() => this.binarySearch()}
                                             disabled={disabled}
+                                            variant="success"
                                         >
                                             Search
-                                        </button>
-                                        <button
-                                            onClick={() => this.resetArray()}
-                                            className="btn btn-danger"
+                                        </Button>
+                                        <Button
                                             id="binarySearchResetArray"
-                                            type="button"
+                                            onClick={() => this.resetArray()}
                                             disabled={disabled}
+                                            variant="danger"
                                         >
                                             Reset Array
-                                        </button>
-                                    </div>
-                                </div>
+                                        </Button>
+                                    </InputGroup.Append>
+                                </InputGroup>
                                 <div className="col-sm-1 "></div>
                             </div>
                         </div>
@@ -169,7 +170,7 @@ export default class BinarySearch extends React.Component {
                             <p className="not-found">{msgAfterExecution}</p>
                         ) : null}
                         <br />
-                        <div className="container">
+                        <div className="container-fluid">
                             {array.map((value, idx) => (
                                 <ArrayTile
                                     type={"binarySearch"}

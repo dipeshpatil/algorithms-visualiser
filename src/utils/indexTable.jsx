@@ -9,8 +9,6 @@ import WordSearch from "./thumbs/word_search.jpg";
 
 import MaskedStyleSVG from "./svg/maskShapesNew.svg";
 
-import "./bootstrap.min.css";
-
 const maskStyles = {
     margin: "0 auto",
     textAlign: "center",
@@ -31,8 +29,8 @@ export default class IndexTable extends React.Component {
 
     render() {
         return (
-            <div className="container mt-2">
-                <div className="text-center text-muted">
+            <div className="container mt-3">
+                <div className="text-center text-light">
                     <h1 style={maskStyles} className="maskText mt-1">
                         Algorithms
                         <br />
@@ -40,19 +38,7 @@ export default class IndexTable extends React.Component {
                     </h1>
                 </div>
                 <center>
-                    <div className="row mt-2">
-                        <div className="col-sm-4 col-6">
-                            <NavLink to="/word-search">
-                                <img
-                                    className="img-fluid w-20 shadowB"
-                                    src={WordSearch}
-                                    alt="Word Searching"
-                                />
-                                <p className="text-muted thumb-title">
-                                    Word Searching
-                                </p>
-                            </NavLink>
-                        </div>
+                    <div className="row mt-4">
                         <div className="col-sm-4 col-6">
                             <NavLink to="/pathfinder">
                                 <img
@@ -60,7 +46,7 @@ export default class IndexTable extends React.Component {
                                     src={PathThumb}
                                     alt="Path Finding"
                                 />
-                                <p className="text-muted thumb-title">
+                                <p className="text-light thumb-title">
                                     Path Finding
                                 </p>
                             </NavLink>
@@ -72,20 +58,8 @@ export default class IndexTable extends React.Component {
                                     src={SortingThumb}
                                     alt="Sorting"
                                 />
-                                <p className="text-muted thumb-title">
+                                <p className="text-light thumb-title">
                                     Sorting Visualiser
-                                </p>
-                            </NavLink>
-                        </div>
-                        <div className="col-sm-4 col-6">
-                            <NavLink to="/n-queens-problem">
-                                <img
-                                    className="img-fluid w-20 shadowB"
-                                    src={NQueensThumb}
-                                    alt="NQueens"
-                                />
-                                <p className="text-muted thumb-title">
-                                    N-Queens Problem
                                 </p>
                             </NavLink>
                         </div>
@@ -96,13 +70,37 @@ export default class IndexTable extends React.Component {
                                     src={BinaryThumb}
                                     alt="Searching"
                                 />
-                                <p className="text-muted thumb-title">
+                                <p className="text-light thumb-title">
                                     Searching Visualiser
                                 </p>
                             </NavLink>
                         </div>
+                        <div className="col-sm-4 col-6">
+                            <NavLink to="/n-queens-problem">
+                                <img
+                                    className="img-fluid w-20 shadowB"
+                                    src={NQueensThumb}
+                                    alt="NQueens"
+                                />
+                                <p className="text-light thumb-title">
+                                    N-Queens Problem
+                                </p>
+                            </NavLink>
+                        </div>
+                        <div className="col-sm-4 col-6">
+                            <NavLink to="/word-search">
+                                <img
+                                    className="img-fluid w-20 shadowB"
+                                    src={WordSearch}
+                                    alt="Word Searching"
+                                />
+                                <p className="text-light thumb-title">
+                                    Word Searching
+                                </p>
+                            </NavLink>
+                        </div>
                     </div>
-                    <div className="text-center text-muted">
+                    <div className="text-center text-light mt-4">
                         Happy Visualisation Day!
                     </div>
                 </center>

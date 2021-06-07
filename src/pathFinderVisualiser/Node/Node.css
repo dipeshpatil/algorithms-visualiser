@@ -4,21 +4,21 @@
 }
 
 .box_p {
-    background-color: #34495e;
-    padding: 6px;
+    background-color: #212121;
+    padding: 10px;
 }
 
 .grid {
     display: grid;
     grid-gap: 0 0;
-    background-color: #34495e;
+    background-color: #212121;
     grid-template-rows: repeat(var(--p-grid-rows), 1fr);
     grid-template-columns: repeat(var(--p-grid-cols), 1fr);
 }
 
 .node {
     padding-top: 108%;
-    background-color: #576574;
+    background-color: #212121;
 }
 
 .plus {
@@ -35,12 +35,12 @@
 }
 
 .node-finish {
-    background-color: #2ecc71;
+    background-color: #0652DD;
     transition: ease-in-out 200ms;
 }
 
 .node-wall {
-    background-color: #222f3e;
+    background-color: #535c68;
     transition: all 250ms;
 }
 
@@ -50,26 +50,6 @@
 }
 
 .node-visited {
-    background-color: #ffc312;
+    background-color: #C4E538;
     transition: ease-in-out 100ms;
-}
-
-.bg-start {
-    background-color: #ea2027 !important;
-    color: #fff !important;
-}
-
-.bg-end {
-    background-color: #2ecc71 !important;
-    color: #fff !important;
-}
-
-.bg-wall {
-    background-color: #222f3e !important;
-    color: #fff !important;
-}
-
-.bg-perform {
-    background-color: #ffc312 !important;
-    color: #000 !important;
 }

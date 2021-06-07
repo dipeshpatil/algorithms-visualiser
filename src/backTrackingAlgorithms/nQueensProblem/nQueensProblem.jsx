@@ -215,7 +215,7 @@ export default class NQueensProblem extends React.Component {
                             <div className="row">
                                 <div className="col-sm-12">
                                     <center>
-                                        <h2>
+                                        <h2 className="text-light">
                                             <img
                                                 className="mb-2"
                                                 src={crown}

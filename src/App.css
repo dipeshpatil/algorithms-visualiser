@@ -1,9 +1,9 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap");
 
-/* body {
-    background-color: #fff !important;
-} */
+body {
+    background-color: #110f0f !important;
+}
 
 .maskText {
     font-family: "Noto Sans JP", sans-serif;
@@ -41,4 +41,8 @@
 
 .thumb-title {
     margin-top: 5px;
+}
+
+.bg-red {
+    background-color: #f53d56;
 }

@@ -18,19 +18,29 @@
 }
 
 .b-array-bar {
-    background-color: #6376f1;
+    background-color: #212121;
     display: inline-block;
-    margin: 5px;
     color: #fff;
-    width: 60px;
+    width: 70px;
     text-align: center;
-    padding: 8px;
-    border-radius: 3px;
+    padding: 12px;
+}
+
+.b-array-bar:first-child {
+    border-left: 3px solid #ffc312;
+    border-top: 3px solid #ffc312;
+    border-bottom: 3px solid #ffc312;
+}
+
+.b-array-bar:last-child {
+    border-right: 3px solid #ffc312;
+    border-top: 3px solid #ffc312;
+    border-bottom: 3px solid #ffc312;
 }
 
 .b-array-bar span {
     padding: 3px;
-    background-color: aquamarine;
+    background-color: #ffc312;
     color: #000;
     margin-top: 10px;
     border-radius: 3px;
