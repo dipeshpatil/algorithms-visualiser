@@ -1,5 +1,9 @@
 import React from "react";
 
+import InputGroup from "react-bootstrap/InputGroup";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+
 import { randomIntFromInterval } from "../utils/randomIntFromInterval";
 import ComplexityTable from "./complexityTable";
 
@@ -21,8 +25,8 @@ import BackBar from "./../utils/backbar";
 var SELECTED = randomIntFromInterval(0, cellColors.length - 1);
 const color = cellColors[SELECTED].reverse();
 
-const SIZE_OF_BOARD = 20; // Size of Board -> N x N Size of 1D Array
-var ANIMATION_SPEED = 1; // Greater Value -> Slower Animation
+const SIZE_OF_BOARD = 25; // Size of Board -> N x N Size of 1D Array
+var ANIMATION_SPEED = 0.5; // Greater Value -> Slower Animation
 const CELL_CORNER_BORDER_RADIUS = 3;
 
 export default class SortingVisualiser extends React.Component {
@@ -203,30 +207,24 @@ export default class SortingVisualiser extends React.Component {
         return (
             <div>
                 <BackBar />
-                <div className="container">
+                <div className="container-fluid">
                     <div className="row">
-                        <div className="col-sm-7">
-                            <div
-                                className="box shadowT board"
-                                id="sortingBoard"
-                            ></div>
-                        </div>
-                        <div className="col-sm-5 mt-1">
-                            <div className="input-group mt-1">
-                                <div className="input-group-prepend">
-                                    <button
+                        <div className="col-sm-3 mt-2">
+                            <InputGroup>
+                                <InputGroup.Prepend>
+                                    <Button
                                         onClick={() => this.resetArray()}
-                                        className="btn btn-danger"
+                                        variant="danger"
                                         disabled={disabled}
                                     >
-                                        New Array
-                                    </button>
-                                </div>
-                                <select
-                                    className="custom-select"
+                                        Reset
+                                    </Button>
+                                </InputGroup.Prepend>
+                                <Form.Control
                                     id="sortingAlgoDropDown"
                                     disabled={disabled}
                                     defaultValue="0"
+                                    as="select"
                                 >
                                     <option disabled value="0">
                                         Algorithm
@@ -237,17 +235,25 @@ export default class SortingVisualiser extends React.Component {
                                     <option value="4">Quick Sort</option>
                                     <option value="5">Heap Sort</option>
                                     <option value="6">Merge Sort</option>
-                                </select>
-                                <div className="input-group-append">
-                                    <button
+                                </Form.Control>
+                                <InputGroup.Append>
+                                    <Button
                                         onClick={() => this.selectAlgorithm()}
-                                        className="btn btn-success"
                                         disabled={disabled}
+                                        variant="success"
                                     >
-                                        Visualize
-                                    </button>
-                                </div>
-                            </div>
+                                        Sort
+                                    </Button>
+                                </InputGroup.Append>
+                            </InputGroup>
+                        </div>
+                        <div className="col-sm-6">
+                            <div
+                                className="box shadowT board mt-2"
+                                id="sortingBoard"
+                            ></div>
+                        </div>
+                        <div className="col-sm-3">
                             <ComplexityTable />
                         </div>
                     </div>

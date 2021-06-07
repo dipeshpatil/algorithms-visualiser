@@ -29,19 +29,19 @@
 }
 
 .legend-finish {
-    background-color: #2ecc71;
+    background-color: #0652DD;
 }
 
 .legend-visited {
-    background-color: #ffc312;
+    background-color: #C4E538;
 }
 
 .legend-wall {
-    background-color: #222f3e;
+    background-color: #535c68;
 }
 
 .legend-path {
-    background-color: #576574;
+    background-color: #212121;
 }
 
 .legend-label {

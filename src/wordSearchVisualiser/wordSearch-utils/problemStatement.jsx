@@ -1,7 +1,7 @@
 import React from "react";
 
 const ProblemStatement = () => (
-    <div className="mt-2">
+    <div className="mt-2 text-light">
         <br />
         Given a 2D board and a word, find if the word exists in the grid.
         <br />
@@ -14,7 +14,7 @@ const ProblemStatement = () => (
         <b>Example:</b>
         <br />
         <br />
-        <pre>
+        <pre className="text-light">
             <b>board</b> = [<br />
             &nbsp;&nbsp;&nbsp;&nbsp;['A','B','C','E'],
             <br />

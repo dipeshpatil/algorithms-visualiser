@@ -1,4 +1,9 @@
 import React from "react";
+
+import InputGroup from "react-bootstrap/InputGroup";
+import FormControl from "react-bootstrap/FormControl";
+import Button from "react-bootstrap/Button";
+
 import { randomIntFromInterval } from "./../../utils/randomIntFromInterval.js";
 import { linearSearchAnimations } from "./../searchingAlgorithms";
 
@@ -8,11 +13,11 @@ import ArrayTile from "./../arrayTile";
 // Stylesheets
 import "./linearSearch.css";
 
-const NUMBER_OF_ARRAY_BARS = 15;
-const DEFAULT_COLOR = "#6376f1";
-const FOUND_COLOR = "#28B463";
-const NOT_FOUND_COLOR = "#F16388";
-const ANIMATION_SPEED_SECONDS = 1;
+const NUMBER_OF_ARRAY_BARS = 20;
+const DEFAULT_COLOR = "#212121";
+const FOUND_COLOR = "#2ecc71";
+const NOT_FOUND_COLOR = "#FA405A";
+const ANIMATION_SPEED_SECONDS = 0.5;
 
 export default class LinearSearch extends React.Component {
     constructor(props) {
@@ -104,42 +109,37 @@ export default class LinearSearch extends React.Component {
 
         return (
             <div>
-                <div className="jumbotron jumbotron-fluid bg-light">
+                <div className="container-fluid p-4">
                     <center>
-                        <Header title="Linear Search" />
-                        <div className="container">
-                            <div className="row">
-                                <div className="col-sm-1"></div>
-                                <div className="input-group col-sm-10">
-                                    <input
+                        <Header colorName="white" title="Linear Search" />
+                        <div className="row">
+                            <div className="col-sm-1"></div>
+                            <div className="container">
+                                <InputGroup className="col-sm-6">
+                                    <FormControl
                                         type="number"
                                         id="targetVal"
-                                        className="form-control"
-                                        placeholder="Find Element"
+                                        placeholder="Find"
                                     />
-                                    <div className="input-group-append">
-                                        <button
+                                    <InputGroup.Append>
+                                        <Button
                                             onClick={() => this.linearSearch()}
-                                            className="btn btn-success"
-                                            type="button"
-                                            id="button-addon2"
                                             disabled={disabled}
+                                            variant="success"
                                         >
                                             Search
-                                        </button>
-                                        <button
+                                        </Button>
+                                        <Button
                                             onClick={() => this.resetArray()}
-                                            className="btn btn-danger"
-                                            id="resetArray"
-                                            type="button"
                                             disabled={disabled}
+                                            variant="danger"
                                         >
                                             Reset Array
-                                        </button>
-                                    </div>
-                                </div>
-                                <div className="col-sm-1 "></div>
+                                        </Button>
+                                    </InputGroup.Append>
+                                </InputGroup>
                             </div>
+                            <div className="col-sm-1 "></div>
                         </div>
                         <br />
                         {!found ? (
@@ -147,7 +147,7 @@ export default class LinearSearch extends React.Component {
                                 {msgAfterExecution}
                             </p>
                         ) : null}
-                        <div className="container">
+                        <div className="container-fluid">
                             {array.map((value, idx) => (
                                 <ArrayTile
                                     type={`linearSearch`}

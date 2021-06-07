@@ -7,6 +7,10 @@ import React from "react";
 //  Importing Node Component to display Node on Grid
 import Node from "./Node/Node";
 
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import InputGroup from "react-bootstrap/InputGroup";
+
 //  Pathfinder Algorithms
 import { dijkstra } from "./pathFindingAlgorithms/dijkstra";
 import { bfs } from "./pathFindingAlgorithms/breadthFirstSearch";
@@ -404,12 +408,8 @@ export default class PathFinderVisualiser extends React.Component {
                 );
                 break;
             case 4:
-                const [
-                    source_visited,
-                    dest_visited,
-                    sPathNodes,
-                    dPathNodes,
-                ] = bidirectionalSearch(grid, STARTNODE, FINISHNODE);
+                const [source_visited, dest_visited, sPathNodes, dPathNodes] =
+                    bidirectionalSearch(grid, STARTNODE, FINISHNODE);
                 this.animatePath(source_visited, sPathNodes);
                 this.animatePath(dest_visited, dPathNodes);
                 return;
@@ -481,132 +481,68 @@ export default class PathFinderVisualiser extends React.Component {
         return (
             <div>
                 <BackBar />
-                <div
-                    className="container-fluid"
-                    style={{ marginTop: "-10px", backgroundColor: "#262626" }}
-                >
+                <div className="container-fluid">
                     <div className="row">
-                        <div className="col-sm-8 mt-2">
-                            <div className="box_p rounded shadowT">
-                                <div
-                                    onMouseOut={() =>
-                                        this.unHighlightDiagonals()
-                                    }
-                                    onMouseOver={() =>
-                                        this.highlightDiagonals()
-                                    }
-                                    id="grid"
-                                    className="grid"
-                                >
-                                    {grid.map((node, idx) => {
-                                        return node.map((cell, idx) => {
-                                            const {
-                                                row,
-                                                col,
-                                                isStart,
-                                                isFinish,
-                                                isWall,
-                                            } = cell;
-                                            return (
-                                                <Node
-                                                    key={`${row}-${col}`}
-                                                    col={col}
-                                                    isFinish={isFinish}
-                                                    isStart={isStart}
-                                                    isWall={isWall}
-                                                    row={row}
-                                                    onNodeClick={(row, col) =>
-                                                        this.handleNodeOperations(
-                                                            row,
-                                                            col,
-                                                            modifyingNodeState
-                                                        )
-                                                    }
-                                                    onNodeOver={(row, col) =>
-                                                        this.highlightNodes(
-                                                            row,
-                                                            col
-                                                        )
-                                                    }
-                                                    onNodeOut={(row, col) =>
-                                                        this.unHighlightNodes(
-                                                            row,
-                                                            col
-                                                        )
-                                                    }
-                                                />
-                                            );
-                                        });
-                                    })}
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-sm-4 mt-2">
+                        <div className="col-sm-3 mt-2">
                             <div className="btn-group btn-block">
-                                <button
-                                    type="button"
+                                <Button
                                     disabled={disableNodesButton}
-                                    className="btn bg-start"
+                                    variant="danger"
                                     onClick={() =>
                                         this.modifyNodeState(START_NODE_STATE)
                                     }
                                 >
-                                    Place Source
-                                </button>
-                                <button
-                                    type="button"
+                                    Source
+                                </Button>
+                                <Button
                                     disabled={disableNodesButton}
-                                    className="btn bg-end"
+                                    variant="success"
                                     onClick={() =>
                                         this.modifyNodeState(END_NODE_STATE)
                                     }
                                 >
-                                    Place Destination
-                                </button>
-                                <button
-                                    type="button"
+                                    Destination
+                                </Button>
+                                <Button
                                     disabled={disableNodesButton}
-                                    className="btn bg-wall"
+                                    variant="dark"
                                     onClick={() =>
                                         this.modifyNodeState(WALL_NODE_STATE)
                                     }
                                 >
                                     Toggle Wall
-                                </button>
+                                </Button>
                             </div>
                             <div className="btn-group btn-block mt-2">
-                                <button
-                                    type="button"
+                                <Button
                                     disabled={disableMazesButton}
-                                    className="btn btn-secondary"
+                                    variant="secondary"
                                     onClick={() => this.generateMaze(grid)}
                                 >
                                     Generate Maze
-                                </button>
-                                <button
-                                    type="button"
+                                </Button>
+                                <Button
                                     disabled={disableClearMazeButton}
-                                    className="btn btn-danger"
+                                    variant="danger"
                                     onClick={() => this.clearBoard()}
                                 >
                                     Clear Maze
-                                </button>
-                                <button
-                                    type="button"
+                                </Button>
+                                <Button
                                     disabled={disableClearPathButton}
-                                    className="btn btn-primary"
+                                    variant="primary"
                                     onClick={() => this.clearPath()}
                                 >
                                     Clear Path
-                                </button>
+                                </Button>
                             </div>
                             <div className="btn-group btn-block mt-2">
-                                <div className="input-group">
-                                    <select
+                                <InputGroup>
+                                    <Form.Control
                                         disabled={disableAlgoDropdown}
                                         id="pathFindingAlgoDropDown"
-                                        className="custom-select"
                                         defaultValue="0"
+                                        as="select"
                                     >
                                         <option disabled value="0">
                                             Select Algorithm
@@ -622,20 +558,85 @@ export default class PathFinderVisualiser extends React.Component {
                                         <option value="4">
                                             Bi-Directional Search
                                         </option>
-                                    </select>
-                                    <div className="input-group-append">
-                                        <button
-                                            disabled={disablePerformButton}
+                                    </Form.Control>
+                                    <InputGroup.Append>
+                                        <Button
                                             onClick={() =>
                                                 this.selectAlgorithm()
                                             }
-                                            className="btn bg-perform"
+                                            disabled={disablePerformButton}
+                                            variant="success"
                                         >
                                             Perform Search
-                                        </button>
+                                        </Button>
+                                    </InputGroup.Append>
+                                </InputGroup>
+                            </div>
+                        </div>
+                        <div className="col-sm-6">
+                            <div className="mt-2">
+                                <div className="box_p rounded shadowT">
+                                    <div
+                                        onMouseOut={() =>
+                                            this.unHighlightDiagonals()
+                                        }
+                                        onMouseOver={() =>
+                                            this.highlightDiagonals()
+                                        }
+                                        id="grid"
+                                        className="grid"
+                                    >
+                                        {grid.map((node, idx) => {
+                                            return node.map((cell, idx) => {
+                                                const {
+                                                    row,
+                                                    col,
+                                                    isStart,
+                                                    isFinish,
+                                                    isWall,
+                                                } = cell;
+                                                return (
+                                                    <Node
+                                                        key={`${row}-${col}`}
+                                                        col={col}
+                                                        isFinish={isFinish}
+                                                        isStart={isStart}
+                                                        isWall={isWall}
+                                                        row={row}
+                                                        onNodeClick={(
+                                                            row,
+                                                            col
+                                                        ) =>
+                                                            this.handleNodeOperations(
+                                                                row,
+                                                                col,
+                                                                modifyingNodeState
+                                                            )
+                                                        }
+                                                        onNodeOver={(
+                                                            row,
+                                                            col
+                                                        ) =>
+                                                            this.highlightNodes(
+                                                                row,
+                                                                col
+                                                            )
+                                                        }
+                                                        onNodeOut={(row, col) =>
+                                                            this.unHighlightNodes(
+                                                                row,
+                                                                col
+                                                            )
+                                                        }
+                                                    />
+                                                );
+                                            });
+                                        })}
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div className="col-sm-3">
                             <Legend />
                             <ComplexityTable />
                         </div>

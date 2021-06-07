@@ -24,6 +24,7 @@ import NQueensProblem from "./backTrackingAlgorithms/nQueensProblem/nQueensProbl
 import RatInAMazeProblem from "./backTrackingAlgorithms/ratInAMaze/ratInAMaze";
 
 //  Stylesheets
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import BackBar from "./utils/backbar";
 
