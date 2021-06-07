@@ -1,5 +1,6 @@
 ## Visualisation of Famous Algorithms
-<img src="https://i.ibb.co/fxx0XZq/screenshot.jpg" />
+
+<img src="https://i.ibb.co/hYnMm1T/Screenshot-2021-06-07-221752.png" />
 
 # How to run this project ?
 
