@@ -12,13 +12,13 @@
             }
             
             .left_triangle {
-                    fill:#2F3857;
+                    fill:#fff;
                     transform-origin: 110px 110px;
                     animation: rot 8s 0.5s infinite reverse cubic-bezier(0.645, 0.045, 0.355, 1);
             }
             
             .right_triangle {
-                fill: #2F3857;
+                fill: #fff;
                 transform-origin: 330px 110px;
                 animation: rot 8s 0.5s infinite cubic-bezier(0.645, 0.045, 0.355, 1);
             }
@@ -44,8 +44,8 @@
     </clipPath>
  
     <linearGradient id="linear-gradient" y1="-17.636" x2="1.197" y2="-17.636" gradientUnits="objectBoundingBox">
-      <stop offset="0" stop-color="#11998e"/>
-      <stop offset="0.621" stop-color="#38ef7d"/>
+      <stop offset="0" stop-color="#ED4C67"/>
+      <stop offset="0.621" stop-color="#EA2027"/>
       <stop offset="1" stop-color="red"/>
     </linearGradient>
         
