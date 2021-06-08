@@ -209,6 +209,13 @@ export default class SortingVisualiser extends React.Component {
                 <BackBar />
                 <div className="container-fluid">
                     <div className="row">
+                        <div className="col-sm-1"></div>
+                        <div className="col-sm-7">
+                            <div
+                                className="box shadowT board mt-2"
+                                id="sortingBoard"
+                            ></div>
+                        </div>
                         <div className="col-sm-3 mt-2">
                             <InputGroup>
                                 <InputGroup.Prepend>
@@ -246,16 +253,9 @@ export default class SortingVisualiser extends React.Component {
                                     </Button>
                                 </InputGroup.Append>
                             </InputGroup>
-                        </div>
-                        <div className="col-sm-6">
-                            <div
-                                className="box shadowT board mt-2"
-                                id="sortingBoard"
-                            ></div>
-                        </div>
-                        <div className="col-sm-3">
                             <ComplexityTable />
                         </div>
+                        <div className="col-sm-1"></div>
                     </div>
                 </div>
             </div>

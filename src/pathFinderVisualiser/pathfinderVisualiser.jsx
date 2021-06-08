@@ -483,6 +483,70 @@ export default class PathFinderVisualiser extends React.Component {
                 <BackBar />
                 <div className="container-fluid">
                     <div className="row">
+                        <div className="col-sm-1"></div>
+                        <div className="col-sm-7">
+                            <div className="mt-2">
+                                <div className="box_p rounded shadowT">
+                                    <div
+                                        onMouseOut={() =>
+                                            this.unHighlightDiagonals()
+                                        }
+                                        onMouseOver={() =>
+                                            this.highlightDiagonals()
+                                        }
+                                        id="grid"
+                                        className="grid"
+                                    >
+                                        {grid.map((node, idx) => {
+                                            return node.map((cell, idx) => {
+                                                const {
+                                                    row,
+                                                    col,
+                                                    isStart,
+                                                    isFinish,
+                                                    isWall,
+                                                } = cell;
+                                                return (
+                                                    <Node
+                                                        key={`${row}-${col}`}
+                                                        col={col}
+                                                        isFinish={isFinish}
+                                                        isStart={isStart}
+                                                        isWall={isWall}
+                                                        row={row}
+                                                        onNodeClick={(
+                                                            row,
+                                                            col
+                                                        ) =>
+                                                            this.handleNodeOperations(
+                                                                row,
+                                                                col,
+                                                                modifyingNodeState
+                                                            )
+                                                        }
+                                                        onNodeOver={(
+                                                            row,
+                                                            col
+                                                        ) =>
+                                                            this.highlightNodes(
+                                                                row,
+                                                                col
+                                                            )
+                                                        }
+                                                        onNodeOut={(row, col) =>
+                                                            this.unHighlightNodes(
+                                                                row,
+                                                                col
+                                                            )
+                                                        }
+                                                    />
+                                                );
+                                            });
+                                        })}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div className="col-sm-3 mt-2">
                             <div className="btn-group btn-block">
                                 <Button
@@ -572,74 +636,10 @@ export default class PathFinderVisualiser extends React.Component {
                                     </InputGroup.Append>
                                 </InputGroup>
                             </div>
-                        </div>
-                        <div className="col-sm-6">
-                            <div className="mt-2">
-                                <div className="box_p rounded shadowT">
-                                    <div
-                                        onMouseOut={() =>
-                                            this.unHighlightDiagonals()
-                                        }
-                                        onMouseOver={() =>
-                                            this.highlightDiagonals()
-                                        }
-                                        id="grid"
-                                        className="grid"
-                                    >
-                                        {grid.map((node, idx) => {
-                                            return node.map((cell, idx) => {
-                                                const {
-                                                    row,
-                                                    col,
-                                                    isStart,
-                                                    isFinish,
-                                                    isWall,
-                                                } = cell;
-                                                return (
-                                                    <Node
-                                                        key={`${row}-${col}`}
-                                                        col={col}
-                                                        isFinish={isFinish}
-                                                        isStart={isStart}
-                                                        isWall={isWall}
-                                                        row={row}
-                                                        onNodeClick={(
-                                                            row,
-                                                            col
-                                                        ) =>
-                                                            this.handleNodeOperations(
-                                                                row,
-                                                                col,
-                                                                modifyingNodeState
-                                                            )
-                                                        }
-                                                        onNodeOver={(
-                                                            row,
-                                                            col
-                                                        ) =>
-                                                            this.highlightNodes(
-                                                                row,
-                                                                col
-                                                            )
-                                                        }
-                                                        onNodeOut={(row, col) =>
-                                                            this.unHighlightNodes(
-                                                                row,
-                                                                col
-                                                            )
-                                                        }
-                                                    />
-                                                );
-                                            });
-                                        })}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-sm-3">
                             <Legend />
                             <ComplexityTable />
                         </div>
+                        <div className="col-sm-1"></div>
                     </div>
                 </div>
             </div>
