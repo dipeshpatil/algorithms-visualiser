@@ -18,6 +18,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.scss";
 import BackBar from "./utils/backbar";
 
+const unused_var = "unused value";
+
 const searchCombined = () => {
   return (
     <div>
