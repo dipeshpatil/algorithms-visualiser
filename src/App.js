@@ -1,22 +1,22 @@
-import React from "react";
+import React from 'react';
 
-import NavBar from "./utils/navbar";
-import { Route } from "react-router-dom";
+import NavBar from './utils/navbar';
+import { Route } from 'react-router-dom';
 
 // Components
-import IndexTable from "./utils/indexTable";
-import WordSearch from "./wordSearchVisualiser/wordSearch";
-import PathFinder from "./PathFinder/PathFinder";
-import SortingVisualiser from "./sortingAlgorithms/sortingVisualiser";
-import BinarySearch from "./searchingAlgorithms/binarySearch/binarySearch";
-import LinearSearch from "./searchingAlgorithms/linearSearch/linearSearch";
-import NQueensProblem from "./backTrackingAlgorithms/nQueensProblem/nQueensProblem";
-import RatInAMazeProblem from "./backTrackingAlgorithms/ratInAMaze/ratInAMaze";
+import IndexTable from './utils/indexTable';
+import WordSearch from './wordSearchVisualiser/wordSearch';
+import PathFinder from './PathFinder/PathFinder';
+import SortingVisualiser from './sortingAlgorithms/sortingVisualiser';
+import BinarySearch from './searchingAlgorithms/binarySearch/binarySearch';
+import LinearSearch from './searchingAlgorithms/linearSearch/linearSearch';
+import NQueensProblem from './backTrackingAlgorithms/nQueensProblem/nQueensProblem';
+import RatInAMazeProblem from './backTrackingAlgorithms/ratInAMaze/ratInAMaze';
 
 //  Stylesheets
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.scss";
-import BackBar from "./utils/backbar";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.scss';
+import BackBar from './utils/backbar';
 
 const searchCombined = () => {
   return (
