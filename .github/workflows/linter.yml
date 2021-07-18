@@ -1,16 +1,13 @@
-name: ESLint PR review
+name: Code Review
 
 on:
   pull_request:
     branches: [master]
 
 jobs:
-  lint:
+  eslint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: rpkak/ESLint-PR-review@latest
-        with:
-          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-          src: src
-          eslint-format: table
+      - name: Analyze code statically using ESLint
+        uses: moneyforward/eslint-action@v0
