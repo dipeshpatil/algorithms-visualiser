@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+* {
+  font-family: "Open Sans", sans-serif;
+}
+
+.rounded-b {
+  border-radius: 5px;
+}
+
+.shadowT {
+  box-shadow: 0 0.5px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.legend {
+  width: 28px;
+  height: 28px;
+  margin: 5px;
+  margin-top: -5px;
+}
+
+.nmt-5 {
+  margin-top: 2px;
+}
+
+.legend-start {
+  background-color: #f81245;
+}
+
+.legend-finish {
+  background-color: #0652dd;
+}
+
+.legend-visited {
+  background-color: #c4e538;
+}
+
+.legend-wall {
+  background-color: #535c68;
+}
+
+.legend-path {
+  background-color: #212121;
+}
+
+.legend-label {
+  margin: 3.5px;
+}

@@ -1,0 +1,57 @@
+$dark: #212121;
+
+:root {
+  --p-grid-cols: 1;
+  --p-grid-rows: 1;
+}
+
+.box_p {
+  background-color: $dark;
+  padding: 10px;
+}
+
+.grid {
+  display: grid;
+  grid-gap: 0 0;
+  background-color: $dark;
+  grid-template-rows: repeat(var(--p-grid-rows), 1fr);
+  grid-template-columns: repeat(var(--p-grid-cols), 1fr);
+}
+
+.node {
+  padding-top: 108%;
+  background-color: $dark;
+}
+
+.plus {
+  background-color: #dfe4ea;
+}
+
+.plus-center {
+  background-color: #1dd1a1;
+}
+
+.node-start {
+  background-color: #ea2027;
+  transition: ease-in-out 200ms;
+}
+
+.node-finish {
+  background-color: #0652dd;
+  transition: ease-in-out 200ms;
+}
+
+.node-wall {
+  background-color: #535c68;
+  transition: all 250ms;
+}
+
+.node-shortest-path {
+  background-color: #ea2027;
+  transition: ease-in-out 25ms;
+}
+
+.node-visited {
+  background-color: #c4e538;
+  transition: ease-in-out 100ms;
+}
