@@ -1,25 +1,16 @@
-name: Lint Code Base
+name: ESLint PR review
 
 on:
-  push:
-    branches-ignore: [master]
   pull_request:
     branches: [master]
 
 jobs:
-  build:
-    name: Lint Code Base
+  lint:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
+      - uses: rpkak/ESLint-PR-review@latest
         with:
-          fetch-depth: 0
-
-      - name: Lint Code Base
-        uses: github/super-linter@v3
-        env:
-          VALIDATE_ALL_CODEBASE: false
-          DEFAULT_BRANCH: master
-          GITHUB_TOKEN: ${{secrets.PERSONAL_ACCESS_TOKEN}}
+          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          src: src
+          eslint-format: table
