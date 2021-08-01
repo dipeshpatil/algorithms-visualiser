@@ -1,0 +1,66 @@
+:root {
+  --f-grid-cols: 1;
+  --f-grid-rows: 1;
+}
+
+.box-f {
+  background-color: #ced6e0;
+  padding: 6px;
+}
+
+.grid-f {
+  display: grid;
+  grid-gap: 0 0;
+  border-radius: 5px;
+  padding: 2px;
+  grid-template-rows: repeat(var(--f-grid-rows), 1fr);
+  grid-template-columns: repeat(var(--f-grid-cols), 1fr);
+}
+
+.node-empty {
+  background-color: #212121;
+}
+
+.node-boundary {
+  background-color: #57606f;
+}
+
+.node-color-1 {
+  background-color: #dc143c;
+}
+
+.node-color-2 {
+  background-color: #78e08f;
+}
+
+.node-color-3 {
+  background-color: #273d93;
+}
+
+.node-color-4 {
+  background-color: #fa983a;
+}
+
+.node-color-5 {
+  background-color: #5f27cd;
+}
+
+.node-color-6 {
+  background-color: #f368e0;
+}
+
+.node-color-7 {
+  background-color: #fd7402;
+}
+
+.node-color-8 {
+  background-color: #118403;
+}
+
+.node-color-9 {
+  background-color: #ffffff;
+}
+
+.f-node {
+  padding-top: 100%;
+}

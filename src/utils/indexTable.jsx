@@ -1,25 +1,26 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 
-import BinaryThumb from "./thumbs/binary.jpg";
-import NQueensThumb from "./thumbs/nqueens.jpg";
-import PathThumb from "./thumbs/path.jpg";
-import SortingThumb from "./thumbs/sorting.jpg";
-import WordSearch from "./thumbs/word_search.jpg";
+import BinaryThumb from './thumbs/binary.jpg';
+import NQueensThumb from './thumbs/nqueens.jpg';
+import PathThumb from './thumbs/path.jpg';
+import SortingThumb from './thumbs/sorting.jpg';
+import WordSearch from './thumbs/word_search.jpg';
+import Filling from './thumbs/fill.png';
 
-import MaskedStyleSVG from "./svg/maskShapesNew.svg";
+import MaskedStyleSVG from './svg/maskShapesNew.svg';
 
 const maskStyles = {
-  margin: "0 auto",
-  textAlign: "center",
+  margin: '0 auto',
+  textAlign: 'center',
   backgroundImage: `url(${MaskedStyleSVG})`,
-  backgroundSize: "cover",
-  backgroundPosition: "50%",
-  backgroundRepeat: "no-repeat",
-  width: "auto",
-  backgroundClip: "text",
-  WebkitBackgroundClip: "text",
-  color: "transparent",
+  backgroundSize: 'cover',
+  backgroundPosition: '50%',
+  backgroundRepeat: 'no-repeat',
+  width: 'auto',
+  backgroundClip: 'text',
+  WebkitBackgroundClip: 'text',
+  color: 'transparent',
 };
 export default class IndexTable extends React.Component {
   constructor(props) {
@@ -56,7 +57,7 @@ export default class IndexTable extends React.Component {
                   src={SortingThumb}
                   alt="Sorting"
                 />
-                <p className="text-light thumb-title">Sorting Visualiser</p>
+                <p className="text-light thumb-title">Sorting</p>
               </NavLink>
             </div>
             <div className="col-sm-4 col-6">
@@ -66,7 +67,7 @@ export default class IndexTable extends React.Component {
                   src={BinaryThumb}
                   alt="Searching"
                 />
-                <p className="text-light thumb-title">Searching Visualiser</p>
+                <p className="text-light thumb-title">Searching</p>
               </NavLink>
             </div>
             <div className="col-sm-4 col-6">
@@ -76,7 +77,7 @@ export default class IndexTable extends React.Component {
                   src={NQueensThumb}
                   alt="NQueens"
                 />
-                <p className="text-light thumb-title">N-Queens Problem</p>
+                <p className="text-light thumb-title">N-Queens</p>
               </NavLink>
             </div>
             <div className="col-sm-4 col-6">
@@ -87,6 +88,16 @@ export default class IndexTable extends React.Component {
                   alt="Word Searching"
                 />
                 <p className="text-light thumb-title">Word Searching</p>
+              </NavLink>
+            </div>
+            <div className="col-sm-4 col-6">
+              <NavLink to="/filling">
+                <img
+                  className="img-fluid w-20 shadowB"
+                  src={Filling}
+                  alt="Filling"
+                />
+                <p className="text-light thumb-title">Filling</p>
               </NavLink>
             </div>
           </div>

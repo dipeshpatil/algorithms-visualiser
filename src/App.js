@@ -12,6 +12,7 @@ import BinarySearch from './searchingAlgorithms/binarySearch/binarySearch';
 import LinearSearch from './searchingAlgorithms/linearSearch/linearSearch';
 import NQueensProblem from './backTrackingAlgorithms/nQueensProblem/nQueensProblem';
 import RatInAMazeProblem from './backTrackingAlgorithms/ratInAMaze/ratInAMaze';
+import Filling from './Filling/Filling';
 
 //  Stylesheets
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -45,6 +46,7 @@ export default class App extends React.Component {
         <Route path="/rat-in-a-maze" component={RatInAMazeProblem} />
         <Route path="/pathfinder" component={PathFinder} />
         <Route path="/word-search" component={WordSearch} />
+        <Route path="/filling" component={Filling} />
       </div>
     );
   }
