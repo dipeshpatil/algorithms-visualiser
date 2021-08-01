@@ -34,7 +34,7 @@ const BOUNDARY_STATE = 2;
 var ROWS = 50,
   COLS = 50;
 
-var SPEED = 10;
+var SPEED = 5;
 
 export default class Filling extends Component {
   constructor(props) {
@@ -230,15 +230,18 @@ export default class Filling extends Component {
               <ButtonGroup className="btn-block">
                 <Button
                   onClick={() => this.modifyNodeState(SEED_STATE)}
-                  variant="danger"
+                  variant="primary"
                 >
                   Set Seed
                 </Button>
                 <Button
                   onClick={() => this.modifyNodeState(BOUNDARY_STATE)}
-                  variant="info"
+                  variant="warning"
                 >
                   Set Boundary
+                </Button>
+                <Button variant="danger" onClick={() => this.setupGrid()}>
+                  Clear Grid
                 </Button>
               </ButtonGroup>
               {/* Pattern */}
