@@ -34,7 +34,7 @@ const BOUNDARY_STATE = 2;
 var ROWS = 50,
   COLS = 50;
 
-var SPEED = 5;
+var SPEED = 10;
 
 export default class Filling extends Component {
   constructor(props) {
@@ -119,7 +119,6 @@ export default class Filling extends Component {
       const [x, y] = animations[i];
       setTimeout(() => {
         const nodeDiv = document.getElementById(`f-node-${x}-${y}`);
-        nodeDiv.style.transition = '200ms all';
         nodeDiv.className = `f-node node-color-${FILL_COLOR}`;
         grid[x][y].backgroundColor = `node-color-${FILL_COLOR}`;
 
