@@ -2,9 +2,10 @@
 
 <img src="https://i.ibb.co/y86B7Wk/main-prj.png" />
 
-## Lighthouse Analysis for Progessive Web Application
+### Lighthouse Analysis for Progessive Web Application
 
-<img src="https://i.ibb.co/T07D7Rq/lighthouse-analysis.png">
+![lighthouse analysis](https://user-images.githubusercontent.com/32517328/131254609-f62bb827-c6ac-4284-9dd0-3e5022843de8.png)
+
 # How to run this project ?
 
 - You should have NodeJS insalled in your localhost machine [Download NodeJS](https://nodejs.org/en/)
