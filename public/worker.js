@@ -1,6 +1,6 @@
 let CACHE_NAME = 'algorithms-visualiser';
 let urlsToCache = [
-  '/algorithms-visualiser',
+  '/algorithms-visualiser/',
   '/completed'
 ];
 
