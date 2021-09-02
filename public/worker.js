@@ -1,7 +1,7 @@
 let CACHE_NAME = 'algorithms-visualiser';
 let urlsToCache = [
   '/algorithms-visualiser/',
-  '/completed'
+  
 ];
 
 // Install a service worker
