@@ -2,79 +2,79 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 
 * {
-    font-family: "Open Sans", sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 @keyframes popupQueen {
-    0% {
-        transform: scale3d(1, 1, 1);
-    }
-    50% {
-        transform: scale3d(1.5, 1.5, 1.5);
-    }
-    100% {
-        transform: scale3d(1, 1, 1);
-    }
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+  50% {
+    transform: scale3d(1.5, 1.5, 1.5);
+  }
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
 }
 .Qboard {
-    position: relative;
-    border-radius: 3px;
-    padding: 10px;
-    width: 100%;
+  position: relative;
+  border-radius: 3px;
+  padding: 10px;
+  width: 100%;
 }
 .Qboard .q-array-tile {
-    display: inline-block;
-    margin: 2px;
-    text-align: center;
-    border-radius: 2px;
+  display: inline-block;
+  margin: 2px;
+  text-align: center;
+  border-radius: 2px;
 }
 .Qboard .q-array-tile i.fa-crown {
-    font-size: 25px;
-    color: #212121;
+  font-size: 25px;
+  color: #212121;
 }
 
 .popupQueen {
-    animation-name: popupQueen;
-    animation-duration: 400ms;
-    animation-fill-mode: forwards;
-    animation-direction: normal;
-    transform-origin: center;
-    transform-box: fill-box;
-    animation-timing-function: ease-in-out;
-    transition: 400ms all;
+  animation-name: popupQueen;
+  animation-duration: 400ms;
+  animation-fill-mode: forwards;
+  animation-direction: normal;
+  transform-origin: center;
+  transform-box: fill-box;
+  animation-timing-function: ease-in-out;
+  transition: 400ms all;
 }
 
 .Qbox {
-    display: grid;
-    grid-gap: 0 0;
-    background-color: #212121;
-    grid-template-rows: repeat(var(--Qgrid-rows), 1fr);
-    grid-template-columns: repeat(var(--Qgrid-cols), 1fr);
+  display: grid;
+  grid-gap: 0 0;
+  background-color: #212121;
+  grid-template-rows: repeat(var(--Qgrid-rows), 1fr);
+  grid-template-columns: repeat(var(--Qgrid-cols), 1fr);
 
-    box-shadow: 0 0.5px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 0.5px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .Qgrid-item {
-    padding-top: 100%;
-    cursor: pointer;
-    text-align: center;
+  padding-top: 100%;
+  cursor: pointer;
+  text-align: center;
 }
 
 .highlight {
-    transition: ease-in 300ms;
-    transform: scale3d(1.25, 1.25, 1.25);
-    margin: 1.5rem;
+  transition: ease-in 300ms;
+  transform: scale3d(1.25, 1.25, 1.25);
+  margin: 1.5rem;
 }
 
 #NQueenResults {
-    width: 100%;
-    height: 50vh;
-    overflow: scroll;
-    overflow-x: hidden;
-    overflow-y: scroll;
+  width: 100%;
+  height: 50vh;
+  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 .alert-success {
-    background-color: #abebc6;
+  background-color: #abebc6;
 }

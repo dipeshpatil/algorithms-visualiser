@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 import {
   Container,
@@ -8,25 +8,25 @@ import {
   Button,
   InputGroup,
   Form,
-} from 'react-bootstrap';
+} from "react-bootstrap";
 
-import './Filling.css';
+import "./Filling.css";
 
-import Node from './Node/Node';
-import BackBar from '../utils/backbar';
+import Node from "./Node/Node";
+import BackBar from "../utils/backbar";
 
-import PATTERNS from './fill-utils/patterns';
+import PATTERNS from "./fill-utils/patterns";
 
 import {
   highlightGrid,
   unHighlightGrid,
-} from './fill-utils/highlightGridNodes';
+} from "./fill-utils/highlightGridNodes";
 
 import {
   floodFillRecursive,
   floodFillQueue,
   floodFillStack,
-} from './fillingAlgorithms/floodFill';
+} from "./fillingAlgorithms/floodFill";
 
 const SEED_STATE = 1;
 const BOUNDARY_STATE = 2;
@@ -54,9 +54,9 @@ export default class Filling extends Component {
   }
 
   setupGrid() {
-    const gridBox = document.getElementById('grid-f');
-    gridBox.style.setProperty('--f-grid-rows', ROWS);
-    gridBox.style.setProperty('--f-grid-cols', COLS);
+    const gridBox = document.getElementById("grid-f");
+    gridBox.style.setProperty("--f-grid-rows", ROWS);
+    gridBox.style.setProperty("--f-grid-cols", COLS);
 
     const grid = new Array(ROWS);
 
@@ -75,7 +75,7 @@ export default class Filling extends Component {
       isFilled: false,
       isBoundary: false,
       isEmpty: true,
-      backgroundColor: 'node-empty',
+      backgroundColor: "node-empty",
     };
   }
 
@@ -131,11 +131,11 @@ export default class Filling extends Component {
     var animations = [];
     const { grid, SEED_ROW, SEED_COL } = this.state;
     const choice = parseInt(
-      document.getElementById('floodFillAlgoDropDown').value
+      document.getElementById("floodFillAlgoDropDown").value
     );
     switch (choice) {
       case 0:
-        alert('Select An Algorithm!');
+        alert("Select An Algorithm!");
         return;
       case 1:
         animations = floodFillRecursive(grid, SEED_ROW, SEED_COL);
@@ -153,10 +153,10 @@ export default class Filling extends Component {
   }
 
   selectPattern() {
-    const choice = parseInt(document.getElementById('patternDropDown').value);
+    const choice = parseInt(document.getElementById("patternDropDown").value);
     switch (choice) {
       case 0:
-        alert('Select Pattern!');
+        alert("Select Pattern!");
         return;
       case 1:
         this.setState({ grid: PATTERNS });
@@ -172,9 +172,9 @@ export default class Filling extends Component {
 
   selectColor() {
     const choice = parseInt(
-      document.getElementById('floodFillColorDropDown').value
+      document.getElementById("floodFillColorDropDown").value
     );
-    if (choice === 0) alert('Select Color!');
+    if (choice === 0) alert("Select Color!");
     this.setState({ FILL_COLOR: choice });
   }
 

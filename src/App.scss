@@ -2,47 +2,47 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap");
 
 body {
-    background-color: #110f0f !important;
+  background-color: #110f0f !important;
 }
 
 .maskText {
-    font-family: "Noto Sans JP", sans-serif;
-    font-size: 2.8rem;
-    line-height: 1;
-    color: #212121;
-    text-transform: uppercase;
-    letter-spacing: -3px;
-    text-align: center;
-    font-weight: 700;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 2.8rem;
+  line-height: 1;
+  color: #212121;
+  text-transform: uppercase;
+  letter-spacing: -3px;
+  text-align: center;
+  font-weight: 700;
 }
 
 .nav-link,
 .dropdown-item {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .tabs {
-    display: none;
+  display: none;
 }
 .shadowB {
-    box-shadow: 0 0.5px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 0.5px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .w-20 {
-    width: 230px;
+  width: 230px;
 }
 
 .w-20:hover {
-    transition: all 0.5s;
-    filter: sepia(0.7);
-    cursor: pointer;
+  transition: all 0.5s;
+  filter: sepia(0.7);
+  cursor: pointer;
 }
 
 .thumb-title {
-    margin-top: 5px;
+  margin-top: 5px;
 }
 
 .bg-red {
-    background-color: #f53d56;
+  background-color: #f53d56;
 }

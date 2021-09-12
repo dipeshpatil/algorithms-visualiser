@@ -1,26 +1,26 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React from "react";
+import { NavLink } from "react-router-dom";
 
-import BinaryThumb from './thumbs/binary.jpg';
-import NQueensThumb from './thumbs/nqueens.jpg';
-import PathThumb from './thumbs/path.jpg';
-import SortingThumb from './thumbs/sorting.jpg';
-import WordSearch from './thumbs/word_search.jpg';
-import Filling from './thumbs/fill.png';
+import BinaryThumb from "./thumbs/binary.jpg";
+import NQueensThumb from "./thumbs/nqueens.jpg";
+import PathThumb from "./thumbs/path.jpg";
+import SortingThumb from "./thumbs/sorting.jpg";
+import WordSearch from "./thumbs/word_search.jpg";
+import Filling from "./thumbs/fill.png";
 
-import MaskedStyleSVG from './svg/maskShapesNew.svg';
+import MaskedStyleSVG from "./svg/maskShapesNew.svg";
 
 const maskStyles = {
-  margin: '0 auto',
-  textAlign: 'center',
+  margin: "0 auto",
+  textAlign: "center",
   backgroundImage: `url(${MaskedStyleSVG})`,
-  backgroundSize: 'cover',
-  backgroundPosition: '50%',
-  backgroundRepeat: 'no-repeat',
-  width: 'auto',
-  backgroundClip: 'text',
-  WebkitBackgroundClip: 'text',
-  color: 'transparent',
+  backgroundSize: "cover",
+  backgroundPosition: "50%",
+  backgroundRepeat: "no-repeat",
+  width: "auto",
+  backgroundClip: "text",
+  WebkitBackgroundClip: "text",
+  color: "transparent",
 };
 export default class IndexTable extends React.Component {
   constructor(props) {
