@@ -1,0 +1,62 @@
+<svg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 550 220'>
+    <defs>
+        <style>
+            .mask_right {
+                clip-path: url(#right_clip-path);
+                fill: red;
+            }
+            
+            .mask_left {
+                clip-path: url(#left_clip-path);
+                fill: red;
+            }
+            
+            .left_triangle {
+                    fill:#fff;
+                    transform-origin: 110px 110px;
+                    animation: rot 8s 0.5s infinite reverse cubic-bezier(0.645, 0.045, 0.355, 1);
+            }
+            
+            .right_triangle {
+                fill: #fff;
+                transform-origin: 330px 110px;
+                animation: rot 8s 0.5s infinite cubic-bezier(0.645, 0.045, 0.355, 1);
+            }
+            
+            .gradient {
+                fill: url(#linear-gradient);
+            }
+        
+            @keyframes rot { from {transform: rotate(0) scale(2);} to {transform: rotate(360deg) scale(2);} }--> 
+            
+        </style>
+        
+    </defs>
+    
+    <title>shapes</title>
+    
+    <clipPath id="left_clip-path">
+            <rect x="0" y="0" width="220" height="220"/>
+    </clipPath>
+    
+    <clipPath id="right_clip-path">
+            <rect x="220" y="0" width="220" height="220"/>
+    </clipPath>
+ 
+    <linearGradient id="linear-gradient" y1="-17.636" x2="1.197" y2="-17.636" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ED4C67"/>
+      <stop offset="0.621" stop-color="#EA2027"/>
+      <stop offset="1" stop-color="red"/>
+    </linearGradient>
+        
+    <rect id="background_gradient" data-name="background_gradient" class="gradient" width="550" height="220"/>
+
+    <g class="mask_left">
+        <polygon class='left_triangle' points='0 0 0 220 220 220 0 0'/>
+    </g>
+    
+    <g class="mask_right">
+        <polygon class='right_triangle' points='220 0 220 220 440 0 440 0'/>
+    </g>
+    
+</svg>
