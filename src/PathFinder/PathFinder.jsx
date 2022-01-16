@@ -35,6 +35,8 @@ import Legend from "./utils/legend";
 //  Complexity table
 import ComplexityTable from "./utils/complexityTable";
 
+import config from "../utils/config";
+
 //  Stylesheets
 import "./PathFinder.scss";
 
@@ -53,37 +55,39 @@ var SPEED;
 var SCREEN_WIDTH = window.screen.width;
 var ROWS, COLS;
 
+const { rows, cols } = config.pathfinder;
+
 // Adjusting the Grid according to Screen Width
 // For better responsiveness and interactivity.
 if (SCREEN_WIDTH > 1440 && SCREEN_WIDTH <= 2560) {
   // TVs and Large Screen Laptops
-  ROWS = 61;
-  COLS = 61;
+  ROWS = rows || 61;
+  COLS = cols || 61;
   SPEED = 10;
 } else if (SCREEN_WIDTH >= 768 && SCREEN_WIDTH <= 1440) {
   // Laptops & Tablets
-  ROWS = 53;
-  COLS = 53;
+  ROWS = rows || 53;
+  COLS = cols || 53;
   SPEED = 15;
 } else if (SCREEN_WIDTH > 425 && SCREEN_WIDTH <= 767) {
   // IPads and Smaller Laptops
-  ROWS = 47;
-  COLS = 47;
+  ROWS = rows || 47;
+  COLS = cols || 47;
   SPEED = 20;
 } else if (SCREEN_WIDTH >= 320 && SCREEN_WIDTH <= 425) {
   // Mobile Devices
-  ROWS = 37;
-  COLS = 37;
+  ROWS = rows || 37;
+  COLS = cols || 37;
   SPEED = 25;
 } else if (SCREEN_WIDTH >= 120 && SCREEN_WIDTH <= 319) {
   // Mobile Devices with Smaller Screens
-  ROWS = 21;
-  COLS = 21;
+  ROWS = rows || 21;
+  COLS = cols || 21;
   SPEED = 25;
 } else {
   // Default Case
-  ROWS = 41;
-  COLS = 41;
+  ROWS = rows || 41;
+  COLS = cols || 41;
   SPEED = 18;
 }
 
