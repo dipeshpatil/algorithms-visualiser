@@ -6,7 +6,7 @@ import { Route } from "react-router-dom";
 // Components
 import IndexTable from "./utils/indexTable";
 import WordSearch from "./wordSearchVisualiser/wordSearch";
-import PathFinder from "./PathFinder/PathFinder";
+import PathFinderV2 from "./PathFinderV2/PathFinderV2";
 import SortingVisualiser from "./sortingAlgorithms/sortingVisualiser";
 import BinarySearch from "./searchingAlgorithms/binarySearch/binarySearch";
 import LinearSearch from "./searchingAlgorithms/linearSearch/linearSearch";
@@ -44,7 +44,7 @@ export default class App extends React.Component {
         <Route path="/searching" component={searchCombined} />
         <Route path="/n-queens-problem" component={NQueensProblem} />
         <Route path="/rat-in-a-maze" component={RatInAMazeProblem} />
-        <Route path="/pathfinder" component={PathFinder} />
+        <Route path="/pathfinder" component={PathFinderV2} />
         <Route path="/word-search" component={WordSearch} />
         <Route path="/filling" component={Filling} />
       </div>

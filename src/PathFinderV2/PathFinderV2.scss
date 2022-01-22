@@ -1,0 +1,12 @@
+:root {
+  --p-grid-cols: 1;
+  --p-grid-rows: 1;
+}
+
+.gridBoard {
+  display: grid;
+  grid-template-columns: repeat(var(--p-grid-rows), 25px);
+  grid-template-rows: repeat(var(--p-grid-cols), 25px);
+  justify-content: center;
+  margin-top: 1rem;
+}
